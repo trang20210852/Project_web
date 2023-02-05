@@ -43,7 +43,7 @@ $db_connection = pg_connect("host=localhost dbname=postgres user=postgres passwo
 			$_SESSION['dangnhap'] = $row->name;
 
 				// header('Location: dashboard.php');
-			header("location:../foodinfo.php");
+			header("location:../trangchu/foodinfo.php");
 		}
 	}  
 //Lấy mật khẩu trong database ra

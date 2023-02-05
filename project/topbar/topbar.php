@@ -1,4 +1,13 @@
-<?php session_start() 
+<?php session_start(); 
+    if(isset($_GET['login'])){
+         $dangxuat = $_GET['login'];
+              }else{
+                   $dangxuat = '';
+                   }
+                 if($dangxuat=='dangxuat'){
+        session_destroy();
+        header('Location: ../trangchu/foodinfo.php');
+     }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,14 +17,14 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>HNFOOD</title>
           <!-- CSS -->
-          <link rel="stylesheet" href="topbar/css/topbar.css" />
+          <link rel="stylesheet" href="../topbar/css/topbar.css" />
           <!-- Unicons CSS -->
           <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
           <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
           <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
           <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-          <script src="topbar/js/script.js" defer></script>
+          <script src="../topbar/js/script.js" defer></script>
         </head>
 <body class="header">
 	<nav class="nav">
@@ -28,7 +37,7 @@
               <li><a href="#">Services</a></li>
               <li><a href="#">Products</a></li>
               <li><a href="#">About Us</a></li>
-              <li><a href="">Contact Us</a></li>
+              <li><a href="footer">Contact Us</a></li>
             </ul>
             <!--</!-->
 
@@ -41,37 +50,52 @@
             <!--</!-->
 
             <!--phần đăng nhập</!-->
-            <div class="main">
-              <?php if(!isset($_SESSION['dangnhap'])){  ?>
+           <div class="main">
+             <?php if(!isset($_SESSION['dangnhap'])){  ?>
+          <i class="ri-user-fill"  onclick="toggleMenu()"></i>
+              <div class="sub-menu-wrap" id = "subMenu">
+              <div class="sub-menu">
+                <a href="../login/login.php"class="sub-menu-link">
+                  <p>Đăng nhập</p>
+                  <span>></span>
+                </a>
+                <a href="../register/register.php" class="sub-menu-link">
+                  <p>Đằng ký</p>
+                  <span>></span>
+                </a>
 
-          <a href="login/login.php" class="user"><i class="ri-user-fill"></i>Sign in</a>
-        <a href="register/register.php">Register</a>
-
-      <?php session_destroy();}else{ ?>
-        <i class="ri-user-fill" style=" color: orange;font-size: 28px;margin-right: 7px;"></i>
-        <b><u style="text-decoration: none; font-size: 1.2rem;"> <?php echo $_SESSION['dangnhap'] ?></u></b>
-  <a href="?login=dangxuat">Đăng xuất</a>
-  <?php 
-    if(isset($_GET['login'])){
-    $dangxuat = $_GET['login'];
-     }else{
-        $dangxuat = '';
-     }
-     if($dangxuat=='dangxuat'){
-        session_destroy();
-        header('Location: foodinfo.php');
-     }
+              </div>
+            </div>
+      <?php session_destroy();}
+      else{ ?>
+          <img src="foods/barbecue.jpg" alt="" class= "logo1" onclick="toggleMenu()">
+            <div class="sub-menu-wrap" id = "subMenu">
+              <div class="sub-menu">
+           <div class="user-info">
+              <img src="foods/barbecue.jpg" alt="">
+                <h2><?php echo $_SESSION['dangnhap'] ?></h2>
+           </div>
+                <hr>
+                <a href="" class="sub-menu-link">
+                  <p>cập nhập thông tin</p>
+                </a>
+                <a href="" class="sub-menu-link">
+                  <p>Đã theo dõi</p> 
+                </a>
+                <a href="" class="sub-menu-link">
+                  <p>Được theo dõi</p> 
+                </a>
+                <a href="?login=dangxuat" class="sub-menu-link">
+                  <p>Đăng xuẩt</p>
+                </a>
+                 <?php 
     } ?>
-  </div>
-      
 
-  </div>
-</div>
-        
-        <div class="bx bx-menu" id="menu-icon"></div>
-       
-  </div>
+        </div>
       </div>
+  </div>
+  <div class="bx bx-menu" id="menu-icon"></div>
+ 
             <!--</!-->
   
       </nav>
