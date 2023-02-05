@@ -1,18 +1,5 @@
-<?php 
-  session_start();
-  if(!isset($_SESSION['dangnhap'])){
-    header('Location: ../project/foodinfo.php');
-  } 
-  if(isset($_GET['login'])){
-  $dangxuat = $_GET['login'];
-   }else{
-    $dangxuat = '';
-   }
-   if($dangxuat=='dangxuat'){
-    session_destroy();
-    header('Location: ../project/foodinfo.php');
-   }
- ?>
+<?php session_start() 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,15 +20,15 @@
 <body class="header">
 	<nav class="nav">
             <i class="uil uil-bars navOpenBtn"></i>
-            <a class="logo" href="#"><b>HNFoods</b></a>
+            <a class="logo" href="foodinfo.php"><b>HNFoods</b></a>
             <!-- MENU của bài</!-->
             <ul class="nav-links">
               <i class="uil uil-times navCloseBtn"></i>
-              <li><a href="#">Home</a></li>
+              <li><a href="foodinfo.php">Home</a></li>
               <li><a href="#">Services</a></li>
               <li><a href="#">Products</a></li>
               <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="">Contact Us</a></li>
             </ul>
             <!--</!-->
 
@@ -55,8 +42,32 @@
 
             <!--phần đăng nhập</!-->
             <div class="main">
-        <a href="login/login.php" class="user"><i class="ri-user-fill"></i>Sign in</a>
+              <?php if(!isset($_SESSION['dangnhap'])){  ?>
+
+          <a href="login/login.php" class="user"><i class="ri-user-fill"></i>Sign in</a>
         <a href="register/register.php">Register</a>
+
+      <?php session_destroy();}else{ ?>
+        <i class="ri-user-fill" style=" color: orange;font-size: 28px;margin-right: 7px;"></i>
+        <b><u style="text-decoration: none; font-size: 1.2rem;"> <?php echo $_SESSION['dangnhap'] ?></u></b>
+  <a href="?login=dangxuat">Đăng xuất</a>
+  <?php 
+    if(isset($_GET['login'])){
+    $dangxuat = $_GET['login'];
+     }else{
+        $dangxuat = '';
+     }
+     if($dangxuat=='dangxuat'){
+        session_destroy();
+        header('Location: foodinfo.php');
+     }
+    } ?>
+  </div>
+      
+
+  </div>
+</div>
+        
         <div class="bx bx-menu" id="menu-icon"></div>
        
   </div>
