@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-   <!----<title>Login Form Design | CodeLab</title>---->
     <link rel="stylesheet" href="css/register.css">
   </head>
   <body >
@@ -32,6 +30,7 @@
           <input type="submit"  name ="dangky"value="Register">
         </div>
      <div class="signup-link"><a href="../login/login.php">Quay lại trang đăng nhập</a></div>
+     <div class="signup-link"><a href="../foodinfo.php">Quay lại trang chủ</a></div>
         <?php require 'xulydangky.php';?> 
       </form>
     </div>

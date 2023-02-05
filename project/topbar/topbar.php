@@ -1,3 +1,18 @@
+<?php 
+  session_start();
+  if(!isset($_SESSION['dangnhap'])){
+    header('Location: ../project/foodinfo.php');
+  } 
+  if(isset($_GET['login'])){
+  $dangxuat = $_GET['login'];
+   }else{
+    $dangxuat = '';
+   }
+   if($dangxuat=='dangxuat'){
+    session_destroy();
+    header('Location: ../project/foodinfo.php');
+   }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +28,7 @@
           <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
           <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-          <script src="js/script.js" defer></script>
+          <script src="topbar/js/script.js" defer></script>
         </head>
 <body class="header">
 	<nav class="nav">
@@ -40,9 +55,11 @@
 
             <!--phần đăng nhập</!-->
             <div class="main">
-        <a href="" class="user"><i class="ri-user-fill"></i>Sign in</a>
-        <a href="">Register</a>
+        <a href="login/login.php" class="user"><i class="ri-user-fill"></i>Sign in</a>
+        <a href="register/register.php">Register</a>
         <div class="bx bx-menu" id="menu-icon"></div>
+       
+  </div>
       </div>
             <!--</!-->
   

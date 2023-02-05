@@ -1,5 +1,5 @@
+
       <!DOCTYPE html>
-      <!-- Coding by CodingLab | www.codinglabweb.com-->
       <html lang="en">
         <head>
           <meta charset="UTF-8" />
@@ -9,7 +9,6 @@
           <!-- CSS -->
           <link rel="stylesheet" href="style.css" />
           <!-- Unicons CSS -->
-          <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
           <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
           <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
           <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
