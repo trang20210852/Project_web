@@ -41,7 +41,7 @@
           <div class="social-links">
             <a href="https://www.facebook.com/FoodyVietnam"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/foodysaigon/"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.youtube.com/c/FoodyVn"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/c/FoodyVn"><i class="fab fa-youtube"></i></a>
             <a href="https://www.foody.vn/"><i class="fab fa-google"></i></a>
           </div>
         </div>

@@ -10,11 +10,15 @@ if(isset($_POST['dangky']))
 	$passwordk = trim($_POST['password']);
 	$ten_tkdk = trim($_POST['ten_tk']);
 	$sdtdk = trim($_POST['sdt']);
-
+	$confirm =trim($_POST['confirm_password']);
+ if($passwordk!=$confirm){
+echo '<script language="javascript">alert("Mật khẩu không trùng!"); window.location="register.php";</script>';
+die ();
+}
 
 
 // Kiểm tra username hoặc ten_tk có bị trùng hay không
-	$query = "SELECT * FROM public.user WHERE username = '$usernamedk' OR name = '$ten_tkdk' ";
+	$query = "SELECT * FROM public.users WHERE username = '$usernamedk' OR name = '$ten_tkdk' ";
 
 // Thực thi câu truy vấn
 	$result = pg_query($db_connection, $query) ;

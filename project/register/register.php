@@ -21,6 +21,10 @@
           <input type="password" name = "password"required>
           <label>Password</label>
         </div>
+        <div class="field">
+          <input type="password" name = " confirm_password"required>
+          <label> Confirm Password</label>
+        </div>
          <div class="field">
           <input type="number" name = "sdt"required>
           <label>Số điện thoại</label>
@@ -30,7 +34,7 @@
           <input type="submit"  name ="dangky"value="Register">
         </div>
      <div class="signup-link"><a href="../login/login.php">Quay lại trang đăng nhập</a></div>
-     <div class="signup-link"><a href="../foodinfo.php">Quay lại trang chủ</a></div>
+     <div class="signup-link"><a href="../trangchu/foodinfo.php">Quay lại trang chủ</a></div>
         <?php require 'xulydangky.php';?> 
       </form>
     </div>

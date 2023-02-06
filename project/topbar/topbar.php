@@ -33,11 +33,10 @@
             <!-- MENU của bài</!-->
             <ul class="nav-links">
               <i class="uil uil-times navCloseBtn"></i>
-              <li><a href="foodinfo.php">Home</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Products</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="footer">Contact Us</a></li>
+              <li><a href="foodinfo.php">Trang chủ</a></li>
+              <li><a href="#">Restaurant</a></li>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#footer">Join Us</a></li>
             </ul>
             <!--</!-->
 
@@ -68,22 +67,22 @@
             </div>
       <?php session_destroy();}
       else{ ?>
-          <img src="foods/barbecue.jpg" alt="" class= "logo1" onclick="toggleMenu()">
+          <img src="../images/avatar.jpg" alt="" class= "logo1" onclick="toggleMenu()">
             <div class="sub-menu-wrap" id = "subMenu">
               <div class="sub-menu">
            <div class="user-info">
-              <img src="foods/barbecue.jpg" alt="">
+              <img src="../images/avatar.jpg" alt="">
                 <h2><?php echo $_SESSION['dangnhap'] ?></h2>
            </div>
                 <hr>
-                <a href="" class="sub-menu-link">
-                  <p>cập nhập thông tin</p>
+                <a href="../userinfoupdate/userinfo.php" class="sub-menu-link">
+                  <p>Cập nhập thông tin</p>
                 </a>
                 <a href="" class="sub-menu-link">
                   <p>Đã theo dõi</p> 
                 </a>
                 <a href="" class="sub-menu-link">
-                  <p>Được theo dõi</p> 
+                  <p>Wish list</p> 
                 </a>
                 <a href="?login=dangxuat" class="sub-menu-link">
                   <p>Đăng xuẩt</p>

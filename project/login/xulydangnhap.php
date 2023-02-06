@@ -20,7 +20,7 @@ $db_connection = pg_connect("host=localhost dbname=postgres user=postgres passwo
 		exit;
 	}
 
-	$query = "SELECT * FROM public.user WHERE username = '$username' ";
+	$query = "SELECT * FROM public.users WHERE username = '$username' ";
 
 	$result = pg_query($db_connection, $query) ;
 
@@ -41,6 +41,7 @@ $db_connection = pg_connect("host=localhost dbname=postgres user=postgres passwo
 		else{
 			
 			$_SESSION['dangnhap'] = $row->name;
+			$_SESSION['username'] = $row->username;
 
 				// header('Location: dashboard.php');
 			header("location:../trangchu/foodinfo.php");
