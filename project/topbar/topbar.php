@@ -4,10 +4,11 @@
               }else{
                    $dangxuat = '';
                    }
-                 if($dangxuat=='dangxuat'){
+      if($dangxuat=='dangxuat'){
         session_destroy();
         header('Location: ../trangchu/foodinfo.php');
      }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,11 +68,11 @@
             </div>
       <?php session_destroy();}
       else{ ?>
-          <img src="../images/avatar.jpg" alt="" class= "logo1" onclick="toggleMenu()">
+          <img src="<?php echo $_SESSION['img']?>" alt="" class= "logo1" onclick="toggleMenu()">
             <div class="sub-menu-wrap" id = "subMenu">
               <div class="sub-menu">
            <div class="user-info">
-              <img src="../images/avatar.jpg" alt="">
+              <img src="<?php echo $_SESSION['img']?>" alt="">
                 <h2><?php echo $_SESSION['dangnhap'] ?></h2>
            </div>
                 <hr>

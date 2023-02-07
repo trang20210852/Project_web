@@ -47,7 +47,7 @@ $db_connection = pg_connect("host=$host port=5432 dbname=$db user=$user password
 			
 			$_SESSION['dangnhap'] = $row->name;
 			$_SESSION['username'] = $row->username;
-
+			
 				// header('Location: dashboard.php');
 			header("location:../trangchu/foodinfo.php");
 		}
