@@ -68,12 +68,12 @@
             </div>
       <?php session_destroy();}
       else{ ?>
-          <img src="<?php echo $_SESSION['img']?>" alt="" class= "logo1" onclick="toggleMenu()">
+          <img src="<?php echo $_SESSION['img'] ?>" alt="" class= "logo1" onclick="toggleMenu()">
             <div class="sub-menu-wrap" id = "subMenu">
               <div class="sub-menu">
            <div class="user-info">
               <img src="<?php echo $_SESSION['img']?>" alt="">
-                <h2><?php echo $_SESSION['dangnhap'] ?></h2>
+              <h2><?php echo $_SESSION['dangnhap']?></h2>
            </div>
                 <hr>
                 <a href="../userinfoupdate/userinfo.php" class="sub-menu-link">

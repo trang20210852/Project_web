@@ -25,7 +25,7 @@ if (isset($_POST['capnhap'])) {
   $address = $_POST['diachi'];
   $anhdaidien = $_POST['anhdaidien'];
 
-
+  if($_FILES['anhdaidien']['name'] != NULL){
   $fileName=$_FILES['anhdaidien']['name'];
   $fileTempt=$_FILES['anhdaidien']['tmp_name'];
   $folder='../images/';
@@ -39,9 +39,13 @@ if (isset($_POST['capnhap'])) {
   }else{
     $alert=1;
   }
-
   $query ="UPDATE users SET username = '$email', password = '$password', name = '$name_n', telephone_num ='$phone', address ='$address', avatar='$src' WHERE username = '$_SESSION[username]'";
-    $result1 = pg_query($db_connection, $query);
+
+  }
+else{
+  $query ="UPDATE users SET username = '$email', password = '$password', name = '$name_n', telephone_num ='$phone', address ='$address'WHERE username = '$_SESSION[username]'";
+}  
+  $result1 = pg_query($db_connection, $query);
     echo"<script>alert('Successfully uploaded!')</script>";
       
       header('Location: ../trangchu/foodinfo.php');
