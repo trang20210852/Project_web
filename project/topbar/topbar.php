@@ -79,7 +79,7 @@ $db_connection = pg_connect("host=$host port=5432 dbname=$db user=$user password
               </div>
             </div>
       <?php session_destroy();}
-      elseif($_SESSION['dangnhap'] != 'admin'){ ?>
+      elseif($_SESSION['dangnhap'] != '$admin'){ ?>
           <img src="<?php echo $img?>" alt="" class= "logo1" onclick="toggleMenu()">
             <div class="sub-menu-wrap" id = "subMenu">
               <div class="sub-menu">

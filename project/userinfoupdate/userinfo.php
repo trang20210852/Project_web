@@ -18,6 +18,7 @@ $db_connection = pg_connect("host=$host port=5432 dbname=$db user=$user password
         header('Location: ../trangchu/foodinfo.php');
      }
 if (isset($_POST['capnhap'])) {
+  echo '<script language="javascript">alert("Successfully uploaded!!"); window.location="../trangchu/foodinfo.php";</script>';
   $name_n = $_POST['name_n'];
   $email = $_POST['email'];
   $phone = $_POST['phone'];
@@ -48,7 +49,7 @@ else{
   $result1 = pg_query($db_connection, $query);
     echo"<script>alert('Successfully uploaded!')</script>";
       
-      header('Location: ../trangchu/foodinfo.php');
+     
     $_SESSION['dangnhap'] = $name_n;
     $row1 = pg_fetch_object($result1);
    

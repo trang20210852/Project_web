@@ -22,7 +22,7 @@ die ();
 
 
 // Kiểm tra username hoặc ten_tk có bị trùng hay không
-	$query = "SELECT * FROM public.users WHERE username = '$usernamedk' OR name = '$ten_tkdk' ";
+	$query = "SELECT * FROM public.users WHERE username = '$usernamedk' ";
 
 // Thực thi câu truy vấn
 	$result = pg_query($db_connection, $query) ;
@@ -37,7 +37,8 @@ die ();
 	}
 
 	else {
-		$sql = "INSERT INTO public.user (username, password, name, telephone_num) VALUES ('$usernamedk', '$passwordk', '$ten_tkdk', '$sdtdk')";
+		$avatar_auto='../images/avatar.jpg';
+		$sql = "INSERT INTO public.users (username, password, name, telephone_num,avatar) VALUES ('$usernamedk', '$passwordk', '$ten_tkdk', '$sdtdk','$avatar_auto')";
 		$resultdangky = pg_query($db_connection, $sql) ;
 		// var_dump($sql);
 		
