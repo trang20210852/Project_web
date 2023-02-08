@@ -13,25 +13,64 @@
         session_destroy();
         header('Location: ../trangchu/foodinfo.php');
      }
+       $avatar_auto='../images/avatar.jpg';
 if (isset($_POST['capnhap'])) {
+<<<<<<< Updated upstream
   $name = $_POST['name'];
+=======
+  echo '<script language="javascript">alert("Successfully uploaded!!"); window.location="../trangchu/foodinfo.php";</script>';
+  $name_n = $_POST['name_n'];
+>>>>>>> Stashed changes
   $email = $_POST['email'];
   $phone = $_POST['phone'];
   $password = $_POST['password'];
   $address = $_POST['diachi'];
   $anhdaidien = $_POST['anhdaidien'];
+<<<<<<< Updated upstream
   $query ="UPDATE users SET username = '$email', password = '$password', name = '$name', telephone_num ='$phone', address ='$address', avatar='$anhdaidien' WHERE username = '$_SESSION[username]'";
     $result1 = pg_query($db_connection, $query);
     echo"<script>alert('Successfully uploaded!')</script>";
       
       header('Location: ../trangchu/foodinfo.php');
     $_SESSION['dangnhap'] = $name;
+=======
+  if($_FILES['anhdaidien']['name'] != NULL){
+  $fileName=$_FILES['anhdaidien']['name'];
+  $fileTempt=$_FILES['anhdaidien']['tmp_name'];
+  $folder='../images/';
+  $name=time().'_'.$fileName;
+  $ext=substr($name,strlen($name)-3,3);
+  $ext1=substr($name,strlen($name)-4,4);
+  $src = $folder.$name;
+  if($ext=="JPG"||$ext=="jpg"||$ext1=="JPEG"||$ext1=="jpeg"||$ext=="GIF"||$ext=="gif"||$ext=="BMP"||$ext=="bmp"||$ext=="PNG"||$ext=="png"){
+    move_uploaded_file($fileTempt, $src);
+  }else{
+    $alert=1;
+  }
+  $query ="UPDATE users SET username = '$email', password = '$password', name = '$name_n', telephone_num ='$phone', address ='$address', avatar='$src' WHERE username = '$_SESSION[username]'";
+
+  }
+else{
+  $query ="UPDATE users SET username = '$email', password = '$password', name = '$name_n', telephone_num ='$phone', address ='$address'WHERE username = '$_SESSION[username]'";
+}  
+  $result1 = pg_query($db_connection, $query);
+    $_SESSION['dangnhap'] = $name_n;
+>>>>>>> Stashed changes
     $row1 = pg_fetch_object($result1);
 
 }
 $sql = "SELECT * FROM users WHERE username = '$_SESSION[username]'";
 $result = pg_query($db_connection, $sql) ;
 $row = pg_fetch_object($result);
+<<<<<<< Updated upstream
+=======
+$_SESSION['img'] = $row->avatar;
+if(!isset($_SESSION['img'])|| file_exists($row->avatar)!=true)
+{
+  $_SESSION['img'] = $avatar_auto;
+  
+}
+>>>>>>> Stashed changes
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -67,7 +106,14 @@ $row = pg_fetch_object($result);
             <span class="details">Địa chỉ</span>
             <input type="text" placeholder="Enter your Address" name="diachi" value="<?php  echo"$row->address"; ?>" required>
           </div>
+<<<<<<< Updated upstream
           
+=======
+          <div class="input-box">
+            <span class="details">Ảnh đại diện</span>
+            <input type="file"  name="anhdaidien" value="<?php  echo"$row->avatar"; ?>" >
+          </div>
+>>>>>>> Stashed changes
         </div>
         <div class="button">
           <input type="submit" name= "capnhap" value="Update">

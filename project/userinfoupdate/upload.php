@@ -1,18 +1,11 @@
 <?php
-  if(isset($_POST['upload'])){
-    $fileName=$_FILES['file']['name'];
-    $fileTempt=$_FILES['file']['tmp_name'];
-    $folder='../images/';
-    $name=time().'_'.$fileName;
-    $ext=substr($name,strlen($name)-3,3);
-    $ext1=substr($name,strlen($name)-4,4);
-    if($ext=="JPG"||$ext=="jpg"||$ext1=="JPEG"||$ext1=="jpeg"||$ext=="GIF"||$ext=="gif"||$ext=="BMP"||$ext=="bmp"||$ext=="PNG"||$ext=="png"){
-      move_uploaded_file($fileTempt, $folder.$name);
-      echo"<script>alert('Successfully uploaded!')</script>";
-    }else{
-      $alert=1;
-    }
-  }
+$filename = '../images/1675834854_2560x1600-1011861-night-planet-space-moonlight-atmosphere-universe-Aurora-midnight-darkness-computer-wallpaper-outer-space-phenomenon.jpg';
+
+if (file_exists($filename)) {
+    echo "The file $filename exists";
+} else {
+    echo "The file $filename does not exist";
+}
 ?>
 <?php if(isset($alert)):?>
   <script>alert("Wrong image format!")</script>
