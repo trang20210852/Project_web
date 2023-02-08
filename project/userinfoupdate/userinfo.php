@@ -56,7 +56,7 @@ else{
 $sql = "SELECT * FROM users WHERE username = '$_SESSION[username]'";
 $result = pg_query($db_connection, $sql) ;
 $row = pg_fetch_object($result);
-$_SESSION['img'] = $row->avatar;
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
