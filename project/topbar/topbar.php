@@ -34,7 +34,7 @@
               <i class="uil uil-times navCloseBtn"></i>
               <li><a href="foodinfo.php">Trang chủ</a></li>
               <li><a href="#">Restaurant</a></li>
-              <li><a href="#">Profile</a></li>
+              <li><a href="../profile/profile.php">Profile</a></li>
               <li><a href="#footer">Join Us</a></li>
             </ul>
             <!--</!-->
@@ -66,21 +66,12 @@
             </div>
       <?php session_destroy();}
       else{ ?>
-<<<<<<< Updated upstream
-          <img src="../images/avatar.jpg" alt="" class= "logo1" onclick="toggleMenu()">
-            <div class="sub-menu-wrap" id = "subMenu">
-              <div class="sub-menu">
-           <div class="user-info">
-              <img src="../images/avatar.jpg" alt="">
-                <h2><?php echo $_SESSION['dangnhap'] ?></h2>
-=======
           <img src="<?php echo $_SESSION['img'] ?>"  alt="" class= "logo1" onclick="toggleMenu()">
             <div class="sub-menu-wrap" id = "subMenu">
               <div class="sub-menu">
            <div class="user-info">
               <img src="<?php echo $_SESSION['img'] ?>" alt="">
               <h2><?php echo $_SESSION['dangnhap']?></h2>
->>>>>>> Stashed changes
            </div>
                 <hr>
                 <a href="../userinfoupdate/userinfo.php" class="sub-menu-link">

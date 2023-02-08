@@ -42,10 +42,6 @@ $db_connection = pg_connect("host=localhost dbname=postgres user=postgres passwo
 			$avatar_auto='../images/avatar.jpg';
 			$_SESSION['dangnhap'] = $row->name;
 			$_SESSION['username'] = $row->username;
-<<<<<<< Updated upstream
-
-				// header('Location: dashboard.php');
-=======
 			$_SESSION['img'] = $row->avatar;
 			if(!isset($_SESSION['img']) || file_exists($row->avatar)!=true)
 			{
@@ -56,7 +52,6 @@ $db_connection = pg_connect("host=localhost dbname=postgres user=postgres passwo
 			}
 
  	
->>>>>>> Stashed changes
 			header("location:../trangchu/foodinfo.php");
 		}
 	}  
