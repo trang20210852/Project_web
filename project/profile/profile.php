@@ -1,4 +1,6 @@
-
+ <!--header</!-->
+          <?php include "../topbar/topbar.php" ?>
+          <!--end of header</!-->
       <!DOCTYPE html>
       <html lang="en">
         <head>
@@ -15,31 +17,46 @@
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
           <script src="js/script.js" defer></script>
         </head>
-        <body>
-          <!--header</!-->
-          <?php include "../topbar/topbar.php" ?>
-          <!--end of header</!-->
-           <?php
+         
+          <body class="profile">
+          <?php         
               $username = $_SESSION['username'];
-              $db_connection = pg_connect("host=localhost dbname=project_web user=postgres password=23052001");
+              $db_connection = pg_connect("host=localhost dbname=postgres user=postgres password=postgres");
               $query = "SELECT * FROM public.users WHERE username = '$username' ";
               $result = pg_query($db_connection, $query) ;
               $row = pg_fetch_object($result);
-              echo '<section class= "card" >';
-                echo '<img src="../images/avatar.jpg" alt="John" style="width:100%">' ;
-                echo '<h1>' . $row->name . '</h1>';
-                echo '<p>'. $row->username.'</p>';
-                echo ' <p>Địa chỉ: '. $row->address .'</p>';
-                echo ' <p>Tel: '. $row->telephone_num .'</p>';
-                echo  '<p><a href= "../userinfoupdate/userinfo.php" class="button" ><button>Chỉnh sửa</button></a></p> '; 
-              echo'</section>';
-                  
-                
-          ?> 
+         
+          ?>
+         
+    <div class="container">
+      <div class="box">
+      <div class="image">
+         <img src="<?php echo $_SESSION['img'] ?>">
+        </div>
+        <div class="name_job">David Chrish</div>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p> Lorem ipsum dolor sitamet, stphen hawkin so adipisicing elit. Ratione disuja doloremque reiciendi nemo.</p>
+        <div class="btns">
+          <a href="../userinfoupdate/userinfo.php"><button>Chỉnh sửa thông tin</button></a>
+        </div>
+      </div>
+      
+      <div class="box1">
+       
+      </div>
+    </div>
+
+         </body> 
+          </html>
           
        <!-- footer-->
           <?php include "../footer/footer.php" ?>
 
  <!-- end of footer -->
-    </body>
-  </html>
+

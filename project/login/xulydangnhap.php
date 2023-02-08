@@ -39,11 +39,19 @@ $db_connection = pg_connect("host=localhost dbname=postgres user=postgres passwo
 		}
 
 		else{
-			
+			$avatar_auto='../images/avatar.jpg';
 			$_SESSION['dangnhap'] = $row->name;
 			$_SESSION['username'] = $row->username;
+			$_SESSION['img'] = $row->avatar;
+			if(!isset($_SESSION['img']) || file_exists($row->avatar)!=true)
+			{
+				$_SESSION['img'] = $avatar_auto;
+				$query1 ="UPDATE users SET  avatar='$avatar_auto' WHERE username = '$_SESSION[username]'";
+			$result1 = pg_query($db_connection, $query) ;
+			$row1 = pg_fetch_object($result)  ;
+			}
 
-				// header('Location: dashboard.php');
+ 	
 			header("location:../trangchu/foodinfo.php");
 		}
 	}  
