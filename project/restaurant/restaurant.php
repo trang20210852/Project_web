@@ -75,18 +75,48 @@
 
           <div class="restaurant-dish">
             <div class="search-dish-bar">
-              <i class="fa-solid fa-magnifying-glass" style="position:absolute;"></i>
+              <i class="fa-solid fa-magnifying-glass search-icon" style=""></i>
               <input
                 type="text"
-                placeholder="Tim Kiem"
+                placeholder="Tìm Món"
                 name="Tim kiem"
               />
             </div>
             <div class="restaurant-dish-list">
-              <ul class="dish-list">
-                <li class="dish-list-item">Text</li>
-                <li class="dish-list-item">Text</li>
-              </ul>
+              <div class="dish">
+                <div class="dish-image">
+                  <img
+                    alt="image"
+                    src="https://images.foody.vn/default/s140x140/shopeefood-deli-dish-no-image.png"
+                  />   
+                </div>
+
+                <div class="dish-name">
+                  Cua hoàng đế
+                </div>
+                <div class="dish-price">
+                  100.000 đ
+                </div>
+              </div>
+
+              <div class="dish">
+              <div class="dish-image">
+                  <img
+                    alt="image"
+                    src="https://images.foody.vn/default/s140x140/shopeefood-deli-dish-no-image.png"
+                  />   
+                </div>
+
+                <div class="dish-name">
+                  Gan ngỗng paris
+                </div>
+                <div class="dish-price">
+                  200.000 đ
+                </div>
+
+              </div>
+
+              
             </div>
           </div>
 
