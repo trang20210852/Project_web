@@ -42,7 +42,6 @@
           $banhkem = 'Bánh ngọt';
           $anvat = ' Đồ Ăn vặt';
           $comrang = 'Cơm rang';
-          
           $trangmieng = 'Tráng miệng';
           $monlau = 'Món lẩu';
           
@@ -129,7 +128,7 @@
             <!-- item -->
             <div class = "food-item all">
               <div class = "food-img">
-                <img src = "<?php echo $row_2['image'][1]; ?>" alt = "food image">
+                <img src = "<?php echo $row_2['image']; ?>" alt = "food image">
               </div>
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_2['name']; ?></h2>

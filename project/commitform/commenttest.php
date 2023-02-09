@@ -9,12 +9,36 @@
 </head>
  <?php include "../topbar/topbar.php" ?>
  <?php if (isset($_POST['commentsubmit']))
- {
- 	if(isset($_POST['comment'])){
- 		echo '<script language="javascript">alert("Bạn chưa comment!"); window.location="../commitform/commenttest.php";</script>';
+ { 
+ 	if(($_POST['comment']=='')){
+ 		echo '<script language="javascript">alert("Bạn chưa feedback!"); window.location="../commitform/commenttest.php";</script>';
 
- 	}
+ 	}else{ ?>
+ <script type="text/javascript">
+function check_val()
+{
+ var bad_words=new Array("death","kill","murder","fuck","nigga");
+ var check_text=document.getElementById("text").value;
+ var error=0;
+ for(var i=0;i<bad_words.length;i++)
+ {
+  var val=bad_words[i];
+  if((check_text.toLowerCase()).indexOf(val.toString())>-1)
+  {
+   error=error+1;
+  }
  }
+	
+ if(error>0)
+ {
+  <script >alert("tồn tại từ xấu!"); window.location="../commitform/commenttest.php";</script>
+ }
+ 
+}
+</script>
+ 
+<?php }
+}
  ?>
 <body class="commentpost">
 	<div class="comment-session">
@@ -38,7 +62,7 @@
 			</div>
 			<form action="" method="post">
 				<textarea name="comment" id="" cols="30" rows="10" placeholder="Your Comment"></textarea>
-				<input type="submit"  name ="commentsubmit" value="Feedback">
+				<input type="submit"  name ="commentsubmit"  value="Feedback"  onclick="check_val();">
 			</form>
 		</div>
 	<?php } ?>
