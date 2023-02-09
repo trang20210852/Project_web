@@ -36,8 +36,7 @@
               <li><a href="foodinfo.php">Trang chủ</a></li>
               <li><a href="#">Restaurant</a></li>
               <li><a href="#">Profile</a></li>
-              <li><a href="#footer">Join Us</a></li>
-            </ul>
+              <li><a href="../commitform/commenttest.php">Feedback</a></li>            
             <!--</!-->
 
            <!-- hiện thị thanh tìm kiếm </!-->
