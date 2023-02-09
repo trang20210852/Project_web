@@ -30,7 +30,7 @@
             <button type = "button" class = "menu-btn" id = "banh_kem">Bánh ngọt</button>
             <button type = "button" class = "menu-btn" id = "an_vat">Ăn vặt</button>
             <button type = "button" class = "menu-btn" id = "mon_lau">Món lẩu</button>
-            <button type = "button" class = "menu-btn" id = "pizza">Pizza</button>
+            <button type = "button" class = "menu-btn" id = "trang_mieng">Tráng miệng</button>
             <button type = "button" class = "menu-btn" id = "com_rang">Cơm rang</button>  
           </div>
           <div class = "food-items">
@@ -42,8 +42,8 @@
           $banhkem = 'Bánh ngọt';
           $anvat = ' Đồ Ăn vặt';
           $comrang = 'Cơm rang';
-          $monga = 'Món gà';
-          $pizza = 'Pizza';
+          
+          $trangmieng = 'Tráng miệng';
           $monlau = 'Món lẩu';
           
           $safeoff = "SELECT * FROM public.dishes WHERE dishes.sale_off > 0  order by dishes.sale_off desc"; 
@@ -53,7 +53,7 @@
           $query_banhkem = "SELECT * FROM public.dishes WHERE type = '$banhkem' ";
           $query_anvat = "SELECT * FROM public.dishes WHERE type = '$anvat' ";
           $query_comrang = "SELECT * FROM public.dishes WHERE type = '$comrang' ";
-          $query_pizza = "SELECT * FROM public.dishes WHERE type = '$pizza' ";
+          $query_trangmieng = "SELECT * FROM public.dishes WHERE type = '$trangmieng' ";
           $query_lau = "SELECT * FROM public.dishes WHERE type = '$monlau' ";
           $show= pg_query($db_connection,$query_all);
           $showdosong = pg_query($db_connection,$query_dosong);
@@ -61,7 +61,7 @@
           $showdobanhkem = pg_query($db_connection,$query_banhkem);
           $showanvat = pg_query($db_connection,$query_anvat);
           $showcomrang = pg_query($db_connection,$query_comrang);
-          $showpizza = pg_query($db_connection,$query_pizza);
+          $showpizza = pg_query($db_connection,$query_trangmieng);
           $showlau = pg_query($db_connection,$query_lau);
           $showsafeoff = pg_query($db_connection,$safeoff);
          
