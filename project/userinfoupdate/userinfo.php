@@ -1,7 +1,10 @@
 <?php 
    session_start();
-   $db_connection = pg_connect("host=localhost dbname=postgres user=postgres password=postgres");
-  if(!isset($_SESSION['dangnhap'])){
+   $host = "localhost";
+$user ="postgres";
+$pass = "root";	
+$db = "Web_LT";
+$db_connection = pg_connect("host=$host port=5432 dbname=$db user=$user password=$pass") or die ("could not connect to Server\n");  if(!isset($_SESSION['dangnhap'])){
         header('Location: ../trangchu/foodinfo.php');
     } 
     if(isset($_GET['login'])){
