@@ -31,7 +31,7 @@
           <div class="restaurant-image">
             <img
               alt="image"
-              src="https://images.unsplash.com/photo-1529859503572-5b9d1e68e952?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDN8fG1pbmltYWxpc20lMjBjb3VjaHxlbnwwfHx8fDE2MjYxODI1OTE&amp;ixlib=rb-1.2.1&amp;w=500"
+              src="./sample_image/nhahang.jpg"
             />
           </div>
           <div class="restaurant-info">
@@ -87,7 +87,7 @@
                 <div class="dish-image">
                   <img
                     alt="image"
-                    src="https://images.foody.vn/default/s140x140/shopeefood-deli-dish-no-image.png"
+                    src="./sample_image/kembo.jpg"
                   />   
                 </div>
 
@@ -103,7 +103,7 @@
               <div class="dish-image">
                   <img
                     alt="image"
-                    src="https://images.foody.vn/default/s140x140/shopeefood-deli-dish-no-image.png"
+                    src="./sample_image/xienbun.jpg"
                   />   
                 </div>
 
@@ -125,10 +125,7 @@
     </div>
   </div>
 
-    
 
-
-      
        <!-- footer-->
           <?php include "../footer/footer.php" ?>
 
