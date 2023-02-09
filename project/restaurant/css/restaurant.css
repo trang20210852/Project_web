@@ -1,0 +1,196 @@
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Kaushan+Script&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+:root{
+    --Inter: 'Inter', sans-serif;
+    --Kaushan: 'Kaushan Script', cursive;
+    --Mont: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+
+    line-height: 1.5;
+    font-family: var(--Mont);
+    background-color: #44355b;
+    color: #fff;
+}
+
+.restaurant-container {
+    width: 100%;
+    display: flex;
+    /* overflow: auto; */
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.restaurant-hero {
+    margin-top: 5rem;
+    width: auto;
+    height: 566px;
+    display: flex;
+    padding: var(--dl-space-space-twounits);
+    max-width: 100%;
+    min-height: 80vh;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.restaurant-floor {
+    flex: 0 0 auto;
+    width: auto;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.restaurant-res-container {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.restaurant-image {
+    flex-basis: 50%;
+    width: 425px;
+    height: 296px;
+    margin-top: var(--dl-space-space-unit);
+    object-fit: cover;
+    margin-left: var(--dl-space-space-unit);
+}
+.restaurant-image img{
+    height: 100%;
+    width: 100%;
+}
+.restaurant-info {
+    flex-basis: 50%;
+    width: 479px;
+    height: 288px;
+    display: flex;
+    align-self: flex-end;
+    margin-top: var(--dl-space-space-unit);
+    align-items: stretch;
+    margin-left: var(--dl-space-space-unit);
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 3rem;
+}
+.restaurant-name {
+    font-size: 1.5rem;
+    padding-right: 0px;
+    margin-bottom: 1rem;
+    padding-bottom: var(--dl-space-space-halfunit);
+}
+.restaurant-address{
+    font-size: 0.8rem;
+}
+.stars{
+    font-size: 1rem;
+    color: #ffc107;
+    display: inline-block;
+}
+.half{
+
+}
+.full{
+    
+}
+.votes{
+    display: inline-block;
+    margin-left: 0.5rem;
+    background-color: #ffc107;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    padding: 0.2rem;
+}
+.restaurant-time {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    /* line-height: 1.25rem; */
+}
+.restaurant-price {
+    margin-top: 0.8rem;
+    font-size: 0.875rem;
+    /* line-height: 1.25rem; */
+}
+.menu-btns-col{
+    padding: 0.6rem 0;
+    display: flex;
+    /* justify-content: left; */
+    align-items: flex-start;
+    flex-direction: column;
+}
+.restaurant-menu {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+    flex-direction: row;
+    margin-bottom: 10rem;
+}
+.restaurant-menu-type {
+    flex-basis: 50%;
+}
+
+.restaurant-dish {
+    flex-basis: 50%;
+    /* margin-top: 5rem; */
+    flex: 0 0 auto;
+    flex-direction: column;
+    display: flex;
+    align-items: left;
+}
+/* .restaurant-dish * {
+    width: 100%;
+} */
+.restaurant-dish-list {
+    /* flex: 0 0 auto;
+    width: 548px;
+    height: 100px;
+    display: flex;
+    margin-top: var(--dl-space-space-unit);
+    align-items: flex-start;
+    margin-left: var(--dl-space-space-unit);
+    flex-direction: column;
+    justify-content: center; */
+}
+.search-dish-bar {
+
+}
+/* @media(max-width: 991px) {
+    .restaurant-hero {
+      padding: var(--dl-space-space-threeunits);
+      flex-direction: column;
+    }
+    .restaurant-res-image {
+      order: 2;
+    }
+    .restaurant-name {
+      text-align: center;
+    }
+}
+@media(max-width: 767px) {
+    .restaurant-hero {
+      padding-left: var(--dl-space-space-twounits);
+      padding-right: var(--dl-space-space-twounits);
+    }
+    .restaurant-res-image {
+      width: 80%;
+    }
+}
+@media(max-width: 479px) {
+    .restaurant-hero {
+      padding-top: var(--dl-space-space-twounits);
+      padding-left: var(--dl-space-space-unit);
+      padding-right: var(--dl-space-space-unit);
+      padding-bottom: var(--dl-space-space-twounits);
+    }
+}
+   */

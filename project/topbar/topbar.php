@@ -20,8 +20,7 @@
           <link rel="stylesheet" href="../topbar/css/topbar.css" />
           <!-- Unicons CSS -->
           <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
-          <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
-          <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+      
           <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
           <script src="../topbar/js/script.js" defer></script>
@@ -29,13 +28,13 @@
 <body class="header">
 	<nav class="nav">
             <i class="uil uil-bars navOpenBtn"></i>
-            <a class="logo" href="foodinfo.php"><b>HNFoods</b></a>
+            <a class="logo" href="../trangchu/foodinfo.php"><b>HNFoods</b></a>
             <!-- MENU của bài</!-->
             <ul class="nav-links">
               <i class="uil uil-times navCloseBtn"></i>
-              <li><a href="foodinfo.php">Trang chủ</a></li>
-              <li><a href="#">Restaurant</a></li>
-              <li><a href="#">Profile</a></li>
+              <li><a href="../trangchu/foodinfo.php">Trang chủ</a></li>
+              <li><a href="../restaurant/restaurant.php">Restaurant</a></li>
+              <li><a href="../profile/profile.php">Profile</a></li>
               <li><a href="#footer">Join Us</a></li>
             </ul>
             <!--</!-->
@@ -67,12 +66,12 @@
             </div>
       <?php session_destroy();}
       else{ ?>
-          <img src="../images/avatar.jpg" alt="" class= "logo1" onclick="toggleMenu()">
+          <img src="<?php echo $_SESSION['img'] ?>"  alt="" class= "logo1" onclick="toggleMenu()">
             <div class="sub-menu-wrap" id = "subMenu">
               <div class="sub-menu">
            <div class="user-info">
-              <img src="../images/avatar.jpg" alt="">
-                <h2><?php echo $_SESSION['dangnhap'] ?></h2>
+              <img src="<?php echo $_SESSION['img'] ?>" alt="">
+              <h2><?php echo $_SESSION['dangnhap']?></h2>
            </div>
                 <hr>
                 <a href="../userinfoupdate/userinfo.php" class="sub-menu-link">

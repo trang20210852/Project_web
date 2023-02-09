@@ -143,15 +143,17 @@ h3.dia_chi {
     margin-right: 0.4rem;
     color: #44355b;
 }
-.food-loai,
-.category{
+
+.sale{
     padding-top: 0.2rem;
     font-size: 1rem;
     font-weight: 800;
+    margin-top: 3px;
     font-family: var(--Inter);
+    color: red;
 }
-.food-loai,
-.category span{
+
+.sale span{
     font-weight: 500;
 }
 
