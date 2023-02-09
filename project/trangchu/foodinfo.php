@@ -23,19 +23,6 @@
       <section class = "menu">
         <div class = "menu-container">
           <div class = "menu-btns">
-<<<<<<< Updated upstream
-            <button type = "button" class = "menu-btn active-btn" id = "featured">Deal hôm nay</button>
-            <button type = "button" class = "menu-btn" id = "today-special">Tất cả</button>
-            <button type = "button" class = "menu-btn" id = "new-arrival">Đồ ăn</button>
-            <button type = "button" class = "menu-btn" id = "new-arrival_1">Đồ uống</button>
-            <button type = "button" class = "menu-btn" id = "new-arrival_2">Bánh kem</button>
-            <button type = "button" class = "menu-btn" id = "new-arrival_3">Vỉa hè</button>
-            <button type = "button" class = "menu-btn" id = "new-arrival_4">Món lẩu</button>
-            <button type = "button" class = "menu-btn" id = "new-arrival_5">Sushi</button>
-            <button type = "button" class = "menu-btn" id = "new-arrival">Mì phở</button>  
-          </div>
-          <div class = "food-items">
-=======
             <button type = "button" class = "menu-btn active-btn" id = "featured">Sale</button>
             <button type = "button" class = "menu-btn" id = "all">Tất cả</button>
             <button type = "button" class = "menu-btn" id = "do_an">Đồ ăn</button>
@@ -79,29 +66,18 @@
           while($row_ = pg_fetch_array($showsafeoff)){
 ?>
           
->>>>>>> Stashed changes
             <!-- item -->
-            <div class = "food-item featured">
+            <div class = "food-item featured ">
               <div class = "food-img">
-<<<<<<< Updated upstream
-                <img src = "foods/banana-bread-with-butter-and-milk.jpg" alt = "food image">
-=======
                 <img src = "<?php echo 'foods/'.$row_['image']?>" alt = "food image">
->>>>>>> Stashed changes
               </div>
               <div class = "food-content">
-                <h2 class = "food-name">Banana Bread With Butter & Milk</h2>
+                <h2 class = "food-name"><?php echo $row_['name']; ?></h2>
 
                 <div class = "line"></div>
-<<<<<<< Updated upstream
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                 <p class = "food-loai">Loại: <span>Phở</span></p>
-                <h3 class = "food-price">$25.00</h3>
-=======
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
                  <!-- <p class = "food-loai">Loại: <span>Phở</span></p> -->
                 <h3 class = "food-price"><?php echo $row_['price'] . " đồng"; ?></h3>
->>>>>>> Stashed changes
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
                   <li><i class = "fas fa-star"></i></li>
@@ -109,19 +85,14 @@
                   <li><i class = "fas fa-star"></i></li>
                   <li><i class = "far fa-star"></i></li>
                 </ul>
-                <p class = "category">Categories: <span>Featured</span></p>
+                <p class = "sale">Sale: <span><?php echo $row_['sale_off'] . "%"; ?></span></p> 
               <button class="chi_tiet">Chi tiết</button>
 
               </div>
             </div>
             <!-- end of item -->
+<?php } 
 
-<<<<<<< Updated upstream
-            <!-- item -->
-            <div class = "food-item today-special">
-              <div class = "food-img">
-                <img src = "foods/barbecue.jpg" alt = "food image">
-=======
           while($row_1 = pg_fetch_array($showdoan)){
 ?>
           
@@ -129,20 +100,14 @@
             <div class = "food-item do_an">
               <div class = "food-img">
                 <img src = "<?php echo 'foods/'.$row_1['image']; ?>" alt = "food image">
->>>>>>> Stashed changes
               </div>
               <div class = "food-content">
-                <h2 class = "food-name">Barbecue</h2>
+                <h2 class = "food-name"><?php echo $row_1['name']; ?></h2>
+
                 <div class = "line"></div>
-<<<<<<< Updated upstream
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                 <p class = "food-loai">Loại: <span>Phở</span></p>
-                <h3 class = "food-price">$20.00</h3>
-=======
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
                  <!-- <p class = "food-loai">Loại: <span>Phở</span></p> -->
                 <h3 class = "food-price"><?php echo $row_1['price'] . " đồng"; ?></h3>
->>>>>>> Stashed changes
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
                   <li><i class = "fas fa-star"></i></li>
@@ -150,68 +115,84 @@
                   <li><i class = "fas fa-star"></i></li>
                   <li><i class = "far fa-star"></i></li>
                 </ul>
-                <p class = "category">Categories: <span>Today's Special</span></p>
+                
+              <button class="chi_tiet">Chi tiết</button>
+              <p class = "sale">Sale: <span><?php echo $row_1['sale_off'] . "%"; ?></span></p> 
+              </div>
+            </div>
+            <!-- end of item -->
+<?php } ?>
+
+           <?php while($row_2 = pg_fetch_array($show)){  ?>
+            <!-- item -->
+            <div class = "food-item all">
+              <div class = "food-img">
+                <img src = "<?php echo 'foods/'.$row_2['image']; ?>" alt = "food image">
+              </div>
+              <div class = "food-content">
+                <h2 class = "food-name"><?php echo $row_2['name']; ?></h2>
+                <div class = "line"></div>
+                <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "food-price"><?php echo $row_2['price'] . " đồng"; ?></h3>
+                <ul class = "rating">
+                  <li><i class = "fas fa-star"></i></li>
+                  <li><i class = "fas fa-star"></i></li>
+                  <li><i class = "fas fa-star"></i></li>
+                  <li><i class = "fas fa-star"></i></li>
+                  <li><i class = "far fa-star"></i></li>
+                </ul>
+                
+              <p class = "sale">Sale: <span><?php echo $row_2['sale_off'] . "%"; ?></span></p> 
                 
               <button class="chi_tiet">Chi tiết</button>
           
               </div>
             </div>
             <!-- end of item -->
-
-
-            <!-- item -->
-            <div class = "food-item new-arrival">
-              <div class = "food-img">
-<<<<<<< Updated upstream
-                <img src = "foods/barbecued-roasted-duck-ramen.jpg" alt = "food image">
-=======
-                <img src = "<?php echo 'foods/'.$row_2['image']; ?>" alt = "food image">
->>>>>>> Stashed changes
-              </div>
-              <div class = "food-content">
-                <h2 class = "food-name">Tá Lả - Ăn Vặt, Mì Xào, Cơm Chiên & Sinh Tố - Phan Văn Trị</h2>
-                <div class = "line"></div>
-<<<<<<< Updated upstream
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                 <p class = "food-loai">Loại: <span>Phở</span></p>
-                <h3 class = "food-price">$35.00</h3>
-=======
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
-                <h3 class = "food-price"><?php echo $row_2['price'] . " đồng"; ?></h3>
->>>>>>> Stashed changes
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
-                <p class = "category">Categories: <span>New Arrivals</span></p>
-              <button class="chi_tiet">Chi tiết</button>
-
-              </div>
-            </div>
-            <!-- end of item -->
+<?php } ?>
 
             <!-- item -->
-<<<<<<< Updated upstream
-            <div class = "food-item featured">
-              <div class = "food-img">
-                <img src = "foods/bread-with-seeds-and-butter.jpg" alt = "food image">
-=======
            <?php while($row_3 = pg_fetch_array($showdobanhngot)){ ?>
 
             <div class = "food-item banh_kem">
               <div class = "food-img">
                 <img src = "<?php echo 'foods/'.$row_3['image'] ; ?>" alt = "food image">
->>>>>>> Stashed changes
               </div>
               <div class = "food-content">
-                <h2 class = "food-name">Bread With Seeds & Butter</h2>
+                <h2 class = "food-name"><?php echo $row_3['name'] ; ?></h2>
                 <div class = "line"></div>
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
                  <p class = "food-loai">Loại: <span>Phở</span></p>
-                <h3 class = "food-price">$27.00</h3>
+                <h3 class = "food-price"><?php echo $row_3['price'] . " đồng"; ?></h3>
+                <ul class = "rating">
+                  <li><i class = "fas fa-star"></i></li>
+                  <li><i class = "fas fa-star"></i></li>
+                  <li><i class = "fas fa-star"></i></li>
+                  <li><i class = "fas fa-star"></i></li>
+                  <li><i class = "far fa-star"></i></li>
+                  <li><i class = "far fa-star"></i></li>
+
+                </ul>
+              <p class = "sale">Sale: <span><?php echo $row_3['sale_off'] . "%"; ?></span></p> 
+                
+              <button class="chi_tiet">Chi tiết</button>
+
+              </div>
+            </div>
+            <!-- end of item -->
+<?php } ?>
+            <!-- item -->
+           <?php while($row_4 = pg_fetch_array($showanvat)){ ?>
+
+            <div class = "food-item an_vat">
+              <div class = "food-img">
+                <img src = "<?php echo 'foods/'.$row_4['image'] ; ?>" alt = "food image">
+              </div>
+              <div class = "food-content">
+                <h2 class = "food-name"><?php echo $row_4['name'] ; ?></h2>
+                <div class = "line"></div>
+                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "food-price"><?php echo $row_4['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
                   <li><i class = "fas fa-star"></i></li>
@@ -219,141 +200,28 @@
                   <li><i class = "fas fa-star"></i></li>
                   <li><i class = "far fa-star"></i></li>
                 </ul>
-                <p class = "category">Categories: <span>Featured</span></p>
+              <p class = "sale">Sale: <span><?php echo $row_4['sale_off'] . "%"; ?></span></p> 
+                
               <button class="chi_tiet">Chi tiết</button>
                 
               </div>
             </div>
             <!-- end of item -->
-
-            <!-- item -->
-            <div class = "food-item today-special">
-              <div class = "food-img">
-                <img src = "foods/breakfast-sandwich-with-hummus-spread-and-fresh-vegetables.jpg" alt = "food image">
-              </div>
-              <div class = "food-content">
-                <h2 class = "food-name">Breadfast Sandwich</h2>
-                <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                 <p class = "food-loai">Loại: <span>Phở</span></p>
-
-                <h3 class = "food-price">$15.00</h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
-                <p class = "category">Categories: <span>Today's Special</span></p>
-              <button class="chi_tiet">Chi tiết</button>
-
-              </div>
-            </div>
-            <!-- end of item -->
-
-            <!-- item -->
-            <div class = "food-item new-arrival">
-              <div class = "food-img">
-<<<<<<< Updated upstream
-                <img src = "foods/brunch-skillet-with-eggs-and-tomatoes.jpg" alt = "food image">
-=======
-                <img src = "<?php echo 'foods/'.$row_4['image'] ; ?>" alt = "food image">
->>>>>>> Stashed changes
-              </div>
-              <div class = "food-content">
-                <h2 class = "food-name">Brunch Skillet</h2>
-                <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                 <p class = "food-loai">Loại: <span>Phở</span></p>
-                <h3 class = "food-price">$10.00</h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
-                <p class = "category">Categories: <span>New Arrivals</span></p>
-              <button class="chi_tiet">Chi tiết</button>
-
-              </div>
-            </div>
-            <!-- end of item -->
-<<<<<<< Updated upstream
-
-            <!-- item -->
-            <div class = "food-item featured">
-              <div class = "food-img">
-                <img src = "foods/chicken-breast-steaks-with-beetroot.jpg" alt = "food image">
-              </div>
-              <div class = "food-content">
-                <h2 class = "food-name">Chicken Breast Steaks</h2>
-                <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                 <p class = "food-loai">Loại: <span>Phở</span></p>
-                <h3 class = "food-price">$15.00</h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
-                <p class = "category">Categories: <span>Featured</span></p>
-              <button class="chi_tiet">Chi tiết</button>
-
-              </div>
-            </div>
-            <!-- end of item -->
-
-            <!-- item -->
-            <div class = "food-item today-special">
-              <div class = "food-img">
-                <img src = "foods/chicken-legs-with-tomatoes-peppers-and-oranges.jpg" alt = "food image">
-              </div>
-              <div class = "food-content">
-                <h2 class = "food-name">Chicken Legs</h2>
-                <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                 <p class = "food-loai">Loại: <span>Phở</span></p>
-                <h3 class = "food-price">$29.00</h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
-                <p class = "category">Categories: <span>Today's Special</span></p>
-              <button class="chi_tiet">Chi tiết</button>
-
-              </div>
-            </div>
-            <!-- end of item -->
-=======
 <?php } ?>
            
             
             <!-- item -->
            <?php while($row_7 = pg_fetch_array($showdouong)){ ?>
->>>>>>> Stashed changes
 
-            <!-- item -->
-            <div class = "food-item new-arrival">
+            <div class = "food-item do_uong">
               <div class = "food-img">
-<<<<<<< Updated upstream
-                <img src = "foods/eggplant-cannelloni.jpg" alt = "food image">
-=======
                 <img src = "<?php echo 'foods/'.$row_7['image']; ?>" alt = "food image">
->>>>>>> Stashed changes
               </div>
               <div class = "food-content">
-                <h2 class = "food-name">Eggplant Cannelloni</h2>
+                 <h2 class = "food-name"><?php echo $row_7['name'] ; ?></h2>
                 <div class = "line"></div>
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                 <p class = "food-loai">Loại: <span>Phở</span></p>
-                <h3 class = "food-price">$35.00</h3>
+                <h3 class = "food-price"><?php echo $row_7['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
                   <li><i class = "fas fa-star"></i></li>
@@ -361,57 +229,26 @@
                   <li><i class = "fas fa-star"></i></li>
                   <li><i class = "far fa-star"></i></li>
                 </ul>
-                <p class = "category">Categories: <span>New Arrivals</span></p>
+              <p class = "sale">Sale: <span><?php echo $row_7['sale_off'] . "%"; ?></span></p> 
               <button class="chi_tiet">Chi tiết</button>
 
               </div>
             </div>
             <!-- end of item -->
-
+<?php } ?>
             <!-- item -->
-<<<<<<< Updated upstream
-            <div class = "food-item featured">
-              <div class = "food-img">
-                <img src = "foods/french-fries-with-steak-and-beer.jpg" alt = "food image">
-              </div>
-              <div class = "food-content">
-                <h2 class = "food-name">French Fries</h2>
-                <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                 <p class = "food-loai">Loại: <span>Phở</span></p>
-                <h3 class = "food-price">$9.00</h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
-                <p class = "category">Categories: <span>Featured</span></p>
-              <button class="chi_tiet">Chi tiết</button>
-
-              </div>
-            </div>
-            <!-- end of item -->
-
-            <!-- item -->
-            <div class = "food-item today-special">
-              <div class = "food-img">
-                <img src = "foods/fried-rice-with-shrimps.jpg" alt = "food image">
-=======
            <?php while($row_8 = pg_fetch_array($showdotrangmieng)){ ?>
 
             <div class = "food-item do_trang_mieng">
               <div class = "food-img">
                 <img src = "<?php echo 'foods/'.$row_8['image'] ; ?>" alt = "food image">
->>>>>>> Stashed changes
               </div>
               <div class = "food-content">
-                <h2 class = "food-name">Fried Rice</h2>
+                <h2 class = "food-name"><?php echo $row_8['name'] ; ?></h2>
                 <div class = "line"></div>
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                 <p class = "food-loai">Loại: <span>Phở</span></p>
-                <h3 class = "food-price">$5.00</h3>
+        
+                <h3 class = "food-price"><?php echo $row_8['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
                   <li><i class = "fas fa-star"></i></li>
@@ -419,37 +256,16 @@
                   <li><i class = "fas fa-star"></i></li>
                   <li><i class = "far fa-star"></i></li>
                 </ul>
-                <p class = "category">Categories: <span>Today's Special</span></p>
+              <p class = "sale">Sale: <span><?php echo $row_8['sale_off'] . "%"; ?></span></p> 
+                
               <button class="chi_tiet">Chi tiết</button>
 
               </div>
             </div>
             <!-- end of item -->
-
+<?php } ?>
             <!-- item -->
-            <div class = "food-item new-arrival">
-              <div class = "food-img">
-                <img src = "foods/king-prawns-with-green-lettuce.jpg" alt = "food image">
-              </div>
-              <div class = "food-content">
-                <h2 class = "food-name">King Prawns</h2>
-                <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                 <p class = "food-loai">Loại: <span>Phở</span></p>
-                <h3 class = "food-price">$11.00</h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
-                <p class = "category">Categories: <span>New Arrivals</span></p>
-              <button class="chi_tiet">Chi tiết</button>
-
-              </div>
-            </div>
-            <!-- end of item -->
+           
           </div>
         </div>
       </section>
