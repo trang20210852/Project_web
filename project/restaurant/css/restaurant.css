@@ -171,7 +171,7 @@ body{
 .search-dish-bar input:focus{
     outline: none;  
 }
-.search-icon {
+.awesome-icon {
     position:absolute;
     padding:0.5rem;
     color:black;
