@@ -61,6 +61,7 @@ img{
     cursor: pointer;
     outline: 0;
     transition: opacity 0.4s ease-out;
+    white-space: nowrap;
 }
 .menu-btn::after{
     content: "";

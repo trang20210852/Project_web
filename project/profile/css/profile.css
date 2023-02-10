@@ -100,7 +100,7 @@ html,body{
      color: #fff;
      background: #8e44ad;
 }
-
+}
 @media (max-width:1200px){
   .container .box{
     width: calc(50% - 10px);

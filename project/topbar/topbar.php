@@ -35,7 +35,7 @@
               <li><a href="../trangchu/foodinfo.php">Trang chủ</a></li>
               <li><a href="../restaurant/restaurant.php">Restaurant</a></li>
               <li><a href="../profile/profile.php">Profile</a></li>
-              <li><a href="#footer">Join Us</a></li>
+              <li><a href="../commitform/commenttest.php">Feedback</a></li>
             </ul>
             <!--</!-->
 

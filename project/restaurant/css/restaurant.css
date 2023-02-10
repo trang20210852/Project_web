@@ -30,18 +30,6 @@ body{
     flex-direction: column;
     justify-content: center;
 }
-.restaurant-hero {
-    margin-top: 5rem;
-    width: auto;
-    height: 566px;
-    display: flex;
-    padding: var(--dl-space-space-twounits);
-    max-width: 100%;
-    min-height: 80vh;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-}
 .restaurant-floor {
     flex: 0 0 auto;
     width: auto;
@@ -53,8 +41,8 @@ body{
     flex: 0 0 auto;
     width: 100%;
     display: flex;
-    align-items: flex-start;
-    flex-direction: row;
+    align-items: center;
+    flex-direction: column;   
 }
 
 .restaurant-image {
@@ -62,25 +50,26 @@ body{
     width: 425px;
     height: 296px;
     margin-top: var(--dl-space-space-unit);
-    object-fit: cover;
     margin-left: var(--dl-space-space-unit);
 }
 .restaurant-image img{
     height: 100%;
     width: 100%;
+    object-fit: cover;
 }
 .restaurant-info {
     flex-basis: 50%;
     width: 479px;
     height: 288px;
     display: flex;
-    align-self: flex-end;
+    /* align-self: flex-end; */
     margin-top: var(--dl-space-space-unit);
     align-items: stretch;
     margin-left: var(--dl-space-space-unit);
     flex-direction: column;
     justify-content: flex-start;
     margin-left: 3rem;
+    margin-top: 3rem;
 }
 .restaurant-name {
     font-size: 1.5rem;
@@ -123,8 +112,7 @@ body{
 .menu-btns-col{
     padding: 0.6rem 0;
     display: flex;
-    /* justify-content: left; */
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
 }
 .restaurant-menu {
@@ -132,8 +120,9 @@ body{
     width: 100%;
     display: flex;
     margin-top: 1rem;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 10rem;
+    margin-top: 3rem;
 }
 .restaurant-menu-type {
     flex-basis: 25%;
@@ -148,20 +137,13 @@ body{
     border-radius: 0.375rem;
     padding: 1rem;
     flex-grow: 1;
+    margin-left: 1rem;
     align-items: left;
     border-style: solid;
     border-color: white;
 }
 .restaurant-dish-list {
-    /* flex: 0 0 auto;
-    width: 548px;
-    height: 100px;
-    display: flex;
-    margin-top: var(--dl-space-space-unit);
-    align-items: flex-start;
-    margin-left: var(--dl-space-space-unit);
-    flex-direction: column;
-    justify-content: center; */
+    min-width: 60vw;
 }
 .search-dish-bar input{
     width: 100%;
@@ -172,9 +154,9 @@ body{
     outline: none;  
 }
 .awesome-icon {
-    position:absolute;
-    padding:0.5rem;
-    color:black;
+    position: absolute;
+    padding: 0.5rem;
+    color: black;
 }
 .dish {
     display: flex;
@@ -199,33 +181,53 @@ body{
     color: #ff9505;
     margin: 1rem;
 }
-/* @media(max-width: 991px) {
-    .restaurant-hero {
-      padding: var(--dl-space-space-threeunits);
-      flex-direction: column;
+
+@media screen and (min-width: 600px){
+    .restaurant-res-container {
+        flex-direction: column;
     }
-    .restaurant-res-image {
-      order: 2;
+    .restaurant-info {
+        margin-left: 0rem;
+        margin-top: 3rem;
     }
-    .restaurant-name {
-      text-align: center;
+    .restaurant-menu {
+        flex-direction: column;
     }
-}
-@media(max-width: 767px) {
-    .restaurant-hero {
-      padding-left: var(--dl-space-space-twounits);
-      padding-right: var(--dl-space-space-twounits);
-    }
-    .restaurant-res-image {
-      width: 80%;
+    .menu-btns-col {
+        align-items: center;
     }
 }
-@media(max-width: 479px) {
-    .restaurant-hero {
-      padding-top: var(--dl-space-space-twounits);
-      padding-left: var(--dl-space-space-unit);
-      padding-right: var(--dl-space-space-unit);
-      padding-bottom: var(--dl-space-space-twounits);
+
+@media screen and (min-width: 768px){
+    .restaurant-res-container {
+        flex-direction: column;
+    }
+    .restaurant-info {
+        margin-left: 0rem;
+        margin-top: 3rem;
+    }
+    .restaurant-menu {
+        flex-direction: row;
+    }
+    .menu-btns-col {
+        align-items: flex-start;
     }
 }
-   */
+
+@media screen and (min-width: 992px){
+
+    .restaurant-res-container {
+        flex-direction: row;
+    }
+
+    .restaurant-info {
+        margin-left: 3rem;
+    }
+    .restaurant-menu {
+        flex-direction: row;
+    }
+    .menu-btns-col {
+        align-items: flex-start;
+    }
+}
+  
