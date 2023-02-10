@@ -123,11 +123,13 @@ img{
 /*    background: #ff9505;*/
 }
 h3.dia_chi {
+    width:400px;
     padding: 0.4rem 0;
     font-weight: 300;
     font-size: 1rem;
     white-space: nowrap;
     overflow: hidden;
+    text-overflow:ellipsis; 
 }
 .food-price{
     padding: 0.4rem 0;
@@ -135,31 +137,16 @@ h3.dia_chi {
     font-size: 1rem;
     opacity: 0.8;
 }
-<<<<<<< Updated upstream
-.rating{
-    display: flex;
-    list-style: none;
-}
-.rating .fa-star{
-    margin-right: 0.4rem;
-    color: #44355b;
-}
-
-.sale{
-=======
 
 .food-loai,
 .category{
->>>>>>> Stashed changes
     padding-top: 0.2rem;
     font-size: 1rem;
     font-weight: 800;
-    margin-top: 3px;
     font-family: var(--Inter);
-    color: red;
 }
-
-.sale span{
+.food-loai,
+.category span{
     font-weight: 500;
 }
 
