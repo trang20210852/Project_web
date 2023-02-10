@@ -32,8 +32,9 @@ die ();
 		die ();
 	}
 
-	else {
-		$sql = "INSERT INTO public.user (username, password, name, telephone_num) VALUES ('$usernamedk', '$passwordk', '$ten_tkdk', '$sdtdk')";
+		else {
+		$avatar_auto='../images/avatar.jpg';
+		$sql = "INSERT INTO public.users (username, password, name, telephone_num,avatar) VALUES ('$usernamedk', '$passwordk', '$ten_tkdk', '$sdtdk','$avatar_auto')";
 		$resultdangky = pg_query($db_connection, $sql) ;
 		// var_dump($sql);
 		
