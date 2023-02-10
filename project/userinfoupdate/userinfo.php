@@ -1,6 +1,7 @@
 <?php 
+include "../connect_database/connect_db.php";  
    session_start();
-   include "../connect_database/connect_db.php";  
+   
     if(!isset($_SESSION['dangnhap'])){
         header('Location: ../trangchu/foodinfo.php');
     } 
