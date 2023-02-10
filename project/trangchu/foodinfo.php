@@ -302,6 +302,7 @@
           </div>
         </div>
       </section>
+      <?php include "pagination.php" ?>
        <!-- footer-->
           <?php include "../footer/footer.php" ?>
 
