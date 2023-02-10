@@ -135,6 +135,7 @@ h3.dia_chi {
     font-size: 1rem;
     opacity: 0.8;
 }
+<<<<<<< Updated upstream
 .rating{
     display: flex;
     list-style: none;
@@ -145,6 +146,11 @@ h3.dia_chi {
 }
 
 .sale{
+=======
+
+.food-loai,
+.category{
+>>>>>>> Stashed changes
     padding-top: 0.2rem;
     font-size: 1rem;
     font-weight: 800;

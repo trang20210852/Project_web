@@ -26,7 +26,7 @@
           <script src="../topbar/js/script.js" defer></script>
         </head>
 <body class="header">
-	<nav class="nav">
+  <nav class="nav">
             <i class="uil uil-bars navOpenBtn"></i>
             <a class="logo" href="../trangchu/foodinfo.php"><b>HNFoods</b></a>
             <!-- MENU của bài</!-->

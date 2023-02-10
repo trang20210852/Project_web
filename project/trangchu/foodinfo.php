@@ -15,7 +15,11 @@
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
           <script src="js/script.js" defer></script>
         </head>
+<<<<<<< Updated upstream
         <style>
+=======
+         <style>
+>>>>>>> Stashed changes
             
             #pagination{
                 text-align: right;
@@ -54,22 +58,32 @@
 
           $item_per_page =!empty($_GET['per_page'])?$_GET['per_page']:6;
           $current_page =!empty($_GET['page'])?$_GET['page']:1;
+<<<<<<< Updated upstream
           $offset =($current_page-1)*$item_per_page;
 
 
+=======
+          $offset =($current_page-1) * $item_per_page;
+          
+>>>>>>> Stashed changes
           $doan = 'Đồ ăn';
           $douong = 'Đồ uống';
           $banhngot = 'Bánh ngọt';
           $anvat = 'Đồ ăn vặt';
           $dotrangmieng = 'Đồ tráng miệng';
           
-        
           
+<<<<<<< Updated upstream
           $safeoff = "SELECT * FROM public.dishes WHERE dishes.sale_off > 0 order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
+=======
+          
+          $safeoff = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.sale_off > 0  order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
+>>>>>>> Stashed changes
           $safeoffnum = pg_query($db_connection,"SELECT * FROM public.dishes WHERE type = '$doan'") ;
           $safeoffnum =pg_num_rows($safeoffnum);
           $totalpagesaleoff = ceil($safeoffnum / $item_per_page);
 
+<<<<<<< Updated upstream
 
           $query_all = "SELECT * FROM public.dishes order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
           $query_doan = "SELECT * FROM public.dishes WHERE type = '$doan' order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
@@ -77,6 +91,14 @@
           $query_banhngot = "SELECT * FROM public.dishes WHERE type = '$banhngot' order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
           $query_anvat = "SELECT * FROM public.dishes WHERE type = '$anvat' order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
           $query_dotrangmieng = "SELECT * FROM public.dishes WHERE type = '$dotrangmieng' order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
+=======
+          $query_all = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall)  limit ".$item_per_page." offset ".$offset ;;
+          $query_doan = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$doan' limit ".$item_per_page." offset ".$offset ;
+          $query_douong = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$douong' limit ".$item_per_page." offset ".$offset ;
+          $query_banhngot = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$banhngot' limit ".$item_per_page." offset ".$offset ;;
+          $query_anvat = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$anvat' limit ".$item_per_page." offset ".$offset ;
+          $query_dotrangmieng = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$dotrangmieng' limit ".$item_per_page." offset ".$offset ;
+>>>>>>> Stashed changes
          
           $show= pg_query($db_connection,$query_all);
           $showdoan = pg_query($db_connection,$query_doan);
@@ -102,15 +124,9 @@
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
                  <!-- <p class = "food-loai">Loại: <span>Phở</span></p> -->
                 <h3 class = "food-price"><?php echo $row_['price'] . " đồng"; ?></h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
+              
                 <p class = "sale">Sale: <span><?php echo $row_['sale_off'] . "%"; ?></span></p> 
-              <button class="chi_tiet">Chi tiết</button>
+              <a href=""><button class="chi_tiet">Chi tiết</button></a>
 
               </div>
             </div>
@@ -132,16 +148,10 @@
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
                  <!-- <p class = "food-loai">Loại: <span>Phở</span></p> -->
                 <h3 class = "food-price"><?php echo $row_1['price'] . " đồng"; ?></h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
-                
-              <button class="chi_tiet">Chi tiết</button>
-              <p class = "sale">Sale: <span><?php echo $row_1['sale_off'] . "%"; ?></span></p> 
+               
+                 <p class = "sale">Sale: <span><?php echo $row_1['sale_off'] . "%"; ?></span></p> 
+               <a href=""><button class="chi_tiet">Chi tiết</button></a>
+             
               </div>
             </div>
             <!-- end of item -->
@@ -158,17 +168,11 @@
                 <div class = "line"></div>
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
                 <h3 class = "food-price"><?php echo $row_2['price'] . " đồng"; ?></h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
+                
                 
               <p class = "sale">Sale: <span><?php echo $row_2['sale_off'] . "%"; ?></span></p> 
                 
-              <button class="chi_tiet">Chi tiết</button>
+               <a href=""><button class="chi_tiet">Chi tiết</button></a>
           
               </div>
             </div>
@@ -188,18 +192,10 @@
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
                  <p class = "food-loai">Loại: <span>Phở</span></p>
                 <h3 class = "food-price"><?php echo $row_3['price'] . " đồng"; ?></h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-
-                </ul>
+              
               <p class = "sale">Sale: <span><?php echo $row_3['sale_off'] . "%"; ?></span></p> 
                 
-              <button class="chi_tiet">Chi tiết</button>
+               <a href=""><button class="chi_tiet">Chi tiết</button></a>
 
               </div>
             </div>
@@ -217,16 +213,10 @@
                 <div class = "line"></div>
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
                 <h3 class = "food-price"><?php echo $row_4['price'] . " đồng"; ?></h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
+               
               <p class = "sale">Sale: <span><?php echo $row_4['sale_off'] . "%"; ?></span></p> 
                 
-              <button class="chi_tiet">Chi tiết</button>
+               <a href=""><button class="chi_tiet">Chi tiết</button></a>
                 
               </div>
             </div>
@@ -246,15 +236,9 @@
                 <div class = "line"></div>
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
                 <h3 class = "food-price"><?php echo $row_7['price'] . " đồng"; ?></h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
+               
               <p class = "sale">Sale: <span><?php echo $row_7['sale_off'] . "%"; ?></span></p> 
-              <button class="chi_tiet">Chi tiết</button>
+             <a href=""><button class="chi_tiet">Chi tiết</button></a>
 
               </div>
             </div>
@@ -273,16 +257,10 @@
                 <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
         
                 <h3 class = "food-price"><?php echo $row_8['price'] . " đồng"; ?></h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
+                
               <p class = "sale">Sale: <span><?php echo $row_8['sale_off'] . "%"; ?></span></p> 
                 
-              <button class="chi_tiet">Chi tiết</button>
+               <a href=""><button class="chi_tiet">Chi tiết</button></a>
 
               </div>
             </div>
