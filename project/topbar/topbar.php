@@ -43,7 +43,6 @@
             <ul class="nav-links">
               <i class="uil uil-times navCloseBtn"></i>
               <li><a href="foodinfo.php">Trang chủ</a></li>
-              <li><a href="../restaurant/restaurant.php">Restaurant</a></li>
               <li><a href="#">Profile</a></li>
               <li><a href="../commitform/commenttest.php">Feedback</a></li>        
               <li><a href="#footer">Join Us</a></li>
@@ -86,7 +85,7 @@
            </div>
                 <hr>
                 <a href="../userinfoupdate/userinfo.php" class="sub-menu-link">
-                  <p>Cập nhập thông tin</p>
+                  <p>Cập nhật thông tin</p>
                 </a>
                 <a href="" class="sub-menu-link">
                   <p>Đã theo dõi</p> 

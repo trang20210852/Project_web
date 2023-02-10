@@ -97,6 +97,9 @@
           $showsafeoff = pg_query($db_connection,$safeoff);
          
           while($row_ = pg_fetch_array($showsafeoff)){
+          $q_address = "SELECT address_c from public.stalls, unnest (stalls.address) as address_c where stalls.id = ".$row_['id_stall']." ;";
+          $address = pg_query($db_connection,$q_address);
+          
 ?>
           
             <!-- item -->
@@ -106,9 +109,10 @@
               </div>
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_['name']; ?></h2>
-
                 <div class = "line"></div>
-                <h3 class = "dia_chi"><?php echo $row_['address']?></h3>
+                <?php while($adr = pg_fetch_array($address)){ ?>
+                <h3 class = "dia_chi"><?php echo $adr['address_c']?></h3>
+             <?php } ?>
                  <!-- <p class = "food-loai">Loại: <span>Phở</span></p> -->
                 <h3 class = "food-price"><?php echo $row_['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
@@ -127,6 +131,8 @@
 <?php } 
 
           while($row_1 = pg_fetch_array($showdoan)){
+            $q_address = "SELECT address_c from public.stalls, unnest (stalls.address) as address_c where stalls.id = ".$row_1['id_stall']." ;";
+          $address = pg_query($db_connection,$q_address);
 ?>
           
             <!-- item -->
@@ -138,7 +144,9 @@
                 <h2 class = "food-name"><?php echo $row_1['name']; ?></h2>
 
                 <div class = "line"></div>
-                <h3 class = "dia_chi"><?php echo $row_1['address']?></h3>
+                <?php while($adr = pg_fetch_array($address)){ ?>
+                <h3 class = "dia_chi"><?php echo $adr['address_c']?></h3>
+             <?php } ?>
                  <!-- <p class = "food-loai">Loại: <span>Phở</span></p> -->
                 <h3 class = "food-price"><?php echo $row_1['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
@@ -156,7 +164,10 @@
             <!-- end of item -->
 <?php } ?>
 
-           <?php while($row_2 = pg_fetch_array($show)){  ?>
+           <?php while($row_2 = pg_fetch_array($show)){ 
+             $q_address = "SELECT address_c from public.stalls, unnest (stalls.address) as address_c where stalls.id = ".$row_2['id_stall']." ;";
+             $address = pg_query($db_connection,$q_address);
+             ?>
             <!-- item -->
             <div class = "food-item all">
               <div class = "food-img">
@@ -165,7 +176,9 @@
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_2['name']; ?></h2>
                 <div class = "line"></div>
-                <h3 class = "dia_chi"><?php echo $row_2['address']; ?></h3>
+                <?php while($adr = pg_fetch_array($address)){ ?>
+                <h3 class = "dia_chi"><?php echo $adr['address_c']?></h3>
+             <?php } ?>
                 <h3 class = "food-price"><?php echo $row_2['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
@@ -185,7 +198,10 @@
 <?php } ?>
 
             <!-- item -->
-           <?php while($row_3 = pg_fetch_array($showdobanhngot)){ ?>
+           <?php while($row_3 = pg_fetch_array($showdobanhngot)){ 
+             $q_address = "SELECT address_c from public.stalls, unnest (stalls.address) as address_c where stalls.id = ".$row_3['id_stall']." ;";
+             $address = pg_query($db_connection,$q_address);
+            ?>
 
             <div class = "food-item banh_kem">
               <div class = "food-img">
@@ -194,7 +210,9 @@
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_3['name'] ; ?></h2>
                 <div class = "line"></div>
-                <h3 class = "dia_chi"><?php echo $row_3['address']?></h3>
+                <?php while($adr = pg_fetch_array($address)){ ?>
+                <h3 class = "dia_chi"><?php echo $adr['address_c']?></h3>
+             <?php } ?>
                  <p class = "food-loai">Loại: <span>Phở</span></p>
                 <h3 class = "food-price"><?php echo $row_3['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
@@ -215,7 +233,10 @@
             <!-- end of item -->
 <?php } ?>
             <!-- item -->
-           <?php while($row_4 = pg_fetch_array($showanvat)){ ?>
+           <?php while($row_4 = pg_fetch_array($showanvat)){ 
+             $q_address = "SELECT address_c from public.stalls, unnest (stalls.address) as address_c where stalls.id = ".$row_4['id_stall']." ;";
+             $address = pg_query($db_connection,$q_address);
+            ?>
 
             <div class = "food-item an_vat">
               <div class = "food-img">
@@ -224,7 +245,9 @@
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_4['name'] ; ?></h2>
                 <div class = "line"></div>
-                <h3 class = "dia_chi"><?php echo $row_4['address']?></h3>
+                <?php while($adr = pg_fetch_array($address)){ ?>
+                <h3 class = "dia_chi"><?php echo $adr['address_c']?></h3>
+             <?php } ?>
                 <h3 class = "food-price"><?php echo $row_4['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
@@ -244,7 +267,10 @@
            
             
             <!-- item -->
-           <?php while($row_7 = pg_fetch_array($showdouong)){ ?>
+           <?php while($row_7 = pg_fetch_array($showdouong)){ 
+             $q_address = "SELECT address_c from public.stalls, unnest (stalls.address) as address_c where stalls.id = ".$row_7['id_stall']." ;";
+             $address = pg_query($db_connection,$q_address);
+            ?>
 
             <div class = "food-item do_uong">
               <div class = "food-img">
@@ -253,7 +279,9 @@
               <div class = "food-content">
                  <h2 class = "food-name"><?php echo $row_7['name'] ; ?></h2>
                 <div class = "line"></div>
-                <h3 class = "dia_chi"><?php echo $row_7['address']?></h3>
+                <?php while($adr = pg_fetch_array($address)){ ?>
+                <h3 class = "dia_chi"><?php echo $adr['address_c']?></h3>
+             <?php } ?>
                 <h3 class = "food-price"><?php echo $row_7['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
@@ -270,7 +298,10 @@
             <!-- end of item -->
 <?php } ?>
             <!-- item -->
-           <?php while($row_8 = pg_fetch_array($showdotrangmieng)){ ?>
+           <?php while($row_8 = pg_fetch_array($showdotrangmieng)){ 
+             $q_address = "SELECT address_c from public.stalls, unnest (stalls.address) as address_c where stalls.id = ".$row_8['id_stall']." ;";
+             $address = pg_query($db_connection,$q_address);
+            ?>
 
             <div class = "food-item do_trang_mieng">
               <div class = "food-img">
@@ -279,7 +310,9 @@
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_8['name'] ; ?></h2>
                 <div class = "line"></div>
-                <h3 class = "dia_chi"><?php echo $row_8['address']?></h3>
+                <?php while($adr = pg_fetch_array($address)){ ?>
+                <h3 class = "dia_chi"><?php echo $adr['address_c']?></h3>
+             <?php } ?>
         
                 <h3 class = "food-price"><?php echo $row_8['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
