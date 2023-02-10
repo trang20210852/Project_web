@@ -33,7 +33,7 @@ die ();
 	}
 
 	else {
-		$sql = "INSERT INTO public.user (username, password, name, telephone_num) VALUES ('$usernamedk', '$passwordk', '$ten_tkdk', '$sdtdk')";
+		$sql = "INSERT INTO public.users (username, password, name, telephone_num) VALUES ('$usernamedk', '$passwordk', '$ten_tkdk', '$sdtdk')";
 		$resultdangky = pg_query($db_connection, $sql) ;
 		// var_dump($sql);
 		
