@@ -15,8 +15,7 @@
 
  	}else{ ?>
  <script type="text/javascript">
-function check_val()
-{
+function check_val(){
  var bad_words=new Array("death","kill","murder","fuck","nigga");
  var check_text=document.getElementById("text").value;
  var error=0;

@@ -15,53 +15,76 @@
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
           <script src="js/script.js" defer></script>
         </head>
+        <style>
+            
+            #pagination{
+                text-align: right;
+                margin-top: 15px;
+                margin-bottom:15px ;
+            }
+            .page-item{
+                border: 1px solid #ccc;
+                padding: 5px 9px;
+                color: white;
+            }
+            .current-page{
+                background: #000;
+                color: white;
+            }
+        </style>
         <body>
           <!--header</!-->
           <?php include "../topbar/topbar.php" ?>
           <!--end of header</!-->
 
-      <section class = "menu">
+  <section class = "menu">
         <div class = "menu-container">
           <div class = "menu-btns">
-            <button type = "button" class = "menu-btn active-btn" id = "featured">Sale</button>
-            <button type = "button" class = "menu-btn" id = "all">Tất cả</button>
-            <button type = "button" class = "menu-btn" id = "do_song">Đồ ăn</button>
+            <button type = "button" class = "menu-btn active-btn" id = "all">Tất cả</button>
+            <button type = "button" class = "menu-btn" id = "featured">Sale</button>
+            <button type = "button" class = "menu-btn" id = "do_an">Đồ ăn</button>
             <button type = "button" class = "menu-btn" id = "do_uong">Đồ uống</button>
             <button type = "button" class = "menu-btn" id = "banh_kem">Bánh ngọt</button>
             <button type = "button" class = "menu-btn" id = "an_vat">Ăn vặt</button>
-            <button type = "button" class = "menu-btn" id = "mon_lau">Món lẩu</button>
-            <button type = "button" class = "menu-btn" id = "trang_mieng">Tráng miệng</button>
-            <button type = "button" class = "menu-btn" id = "com_rang">Cơm rang</button>  
+            <button type = "button" class = "menu-btn" id = "do_trang_mieng">Đồ tráng miệng</button>  
           </div>
           <div class = "food-items">
           <?php  
           $db_connection =pg_connect("host=localhost dbname=project user=postgres password=postgres");
-          
-          $dosong = 'Đồ ăn';
+
+          $item_per_page =!empty($_GET['per_page'])?$_GET['per_page']:6;
+          $current_page =!empty($_GET['page'])?$_GET['page']:1;
+          $offset =($current_page-1)*$item_per_page;
+
+
+          $doan = 'Đồ ăn';
           $douong = 'Đồ uống';
-          $banhkem = 'Bánh ngọt';
-          $anvat = ' Đồ Ăn vặt';
-          $comrang = 'Cơm rang';
-          $trangmieng = 'Tráng miệng';
-          $monlau = 'Món lẩu';
+          $banhngot = 'Bánh ngọt';
+          $anvat = 'Đồ ăn vặt';
+          $dotrangmieng = 'Đồ tráng miệng';
           
-          $safeoff = "SELECT * FROM public.dishes WHERE dishes.sale_off > 0  order by dishes.sale_off desc"; 
-          $query_all = "SELECT * FROM public.dishes order by dishes.sale_off desc";
-          $query_dosong = "SELECT * FROM public.dishes WHERE type = '$dosong' ";
-          $query_douong = "SELECT * FROM public.dishes WHERE type = '$douong' ";
-          $query_banhkem = "SELECT * FROM public.dishes WHERE type = '$banhkem' ";
-          $query_anvat = "SELECT * FROM public.dishes WHERE type = '$anvat' ";
-          $query_comrang = "SELECT * FROM public.dishes WHERE type = '$comrang' ";
-          $query_trangmieng = "SELECT * FROM public.dishes WHERE type = '$trangmieng' ";
-          $query_lau = "SELECT * FROM public.dishes WHERE type = '$monlau' ";
+        
+          
+          $safeoff = "SELECT * FROM public.dishes WHERE dishes.sale_off > 0 order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
+          $safeoffnum = pg_query($db_connection,"SELECT * FROM public.dishes WHERE type = '$doan'") ;
+          $safeoffnum =pg_num_rows($safeoffnum);
+          $totalpagesaleoff = ceil($safeoffnum / $item_per_page);
+
+
+          $query_all = "SELECT * FROM public.dishes order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
+          $query_doan = "SELECT * FROM public.dishes WHERE type = '$doan' order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
+          $query_douong = "SELECT * FROM public.dishes WHERE type = '$douong'  order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
+          $query_banhngot = "SELECT * FROM public.dishes WHERE type = '$banhngot' order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
+          $query_anvat = "SELECT * FROM public.dishes WHERE type = '$anvat' order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
+          $query_dotrangmieng = "SELECT * FROM public.dishes WHERE type = '$dotrangmieng' order by dishes.sale_off desc limit ".$item_per_page." offset ".$offset ;
+         
           $show= pg_query($db_connection,$query_all);
-          $showdosong = pg_query($db_connection,$query_dosong);
+          $showdoan = pg_query($db_connection,$query_doan);
           $showdouong = pg_query($db_connection,$query_douong);
-          $showdobanhkem = pg_query($db_connection,$query_banhkem);
+          $showdobanhngot = pg_query($db_connection,$query_banhngot);
           $showanvat = pg_query($db_connection,$query_anvat);
-          $showcomrang = pg_query($db_connection,$query_comrang);
-          $showpizza = pg_query($db_connection,$query_trangmieng);
-          $showlau = pg_query($db_connection,$query_lau);
+          $showdotrangmieng = pg_query($db_connection,$query_dotrangmieng);
+         
           $showsafeoff = pg_query($db_connection,$safeoff);
          
           while($row_ = pg_fetch_array($showsafeoff)){
@@ -70,13 +93,13 @@
             <!-- item -->
             <div class = "food-item featured ">
               <div class = "food-img">
-                <img src = "<?php echo $row_['image']; ?>" alt = "food image">
+                <img src = "<?php echo 'foods/'.$row_['image']?>" alt = "food image">
               </div>
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_['name']; ?></h2>
 
                 <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
                  <!-- <p class = "food-loai">Loại: <span>Phở</span></p> -->
                 <h3 class = "food-price"><?php echo $row_['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
@@ -94,19 +117,19 @@
             <!-- end of item -->
 <?php } 
 
-          while($row_1 = pg_fetch_array($showdosong)){
+          while($row_1 = pg_fetch_array($showdoan)){
 ?>
           
             <!-- item -->
-            <div class = "food-item do_song">
+            <div class = "food-item do_an">
               <div class = "food-img">
-                <img src = "<?php echo $row_1['image']; ?>" alt = "food image">
+                <img src = "<?php echo 'foods/'.$row_1['image']; ?>" alt = "food image">
               </div>
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_1['name']; ?></h2>
 
                 <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
                  <!-- <p class = "food-loai">Loại: <span>Phở</span></p> -->
                 <h3 class = "food-price"><?php echo $row_1['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
@@ -128,12 +151,12 @@
             <!-- item -->
             <div class = "food-item all">
               <div class = "food-img">
-                <img src = "<?php echo $row_2['image']; ?>" alt = "food image">
+                <img src = "<?php echo 'foods/'.$row_2['image']; ?>" alt = "food image">
               </div>
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_2['name']; ?></h2>
                 <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
                 <h3 class = "food-price"><?php echo $row_2['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
@@ -153,11 +176,11 @@
 <?php } ?>
 
             <!-- item -->
-           <?php while($row_3 = pg_fetch_array($showdobanhkem)){ ?>
+           <?php while($row_3 = pg_fetch_array($showdobanhngot)){ ?>
 
             <div class = "food-item banh_kem">
               <div class = "food-img">
-                <img src = "<?php echo $row_3['image'] ; ?>" alt = "food image">
+                <img src = "<?php echo 'foods/'.$row_3['image'] ; ?>" alt = "food image">
               </div>
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_3['name'] ; ?></h2>
@@ -187,7 +210,7 @@
 
             <div class = "food-item an_vat">
               <div class = "food-img">
-                <img src = "<?php echo $row_4['image'] ; ?>" alt = "food image">
+                <img src = "<?php echo 'foods/'.$row_4['image'] ; ?>" alt = "food image">
               </div>
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_4['name'] ; ?></h2>
@@ -209,67 +232,14 @@
             </div>
             <!-- end of item -->
 <?php } ?>
-            <!-- item -->
-           <?php while($row_5 = pg_fetch_array($showlau)){ ?>
-
-            <div class = "food-item mon_lau">
-              <div class = "food-img">
-                <img src = "<?php echo $row_5['image'] ; ?>" alt = "food image">
-              </div>
-              <div class = "food-content">
-                <h2 class = "food-name"><?php echo $row_5['name'] ; ?></h2>
-                <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-              
-
-                <h3 class = "food-price"><?php echo $row_5['price'] . " đồng"; ?></h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
-              <p class = "sale">Sale: <span><?php echo $row_5['sale_off'] . "%"; ?></span></p> 
-                
-              <button class="chi_tiet">Chi tiết</button>
-              </div>
-            </div>
-            <!-- end of item -->
-<?php } ?>
-            <!-- item -->
-           <?php while($row_6 = pg_fetch_array($showpizza)){ ?>
-
-            <div class = "food-item pizza">
-              <div class = "food-img">
-                <img src = "<?php echo $row_6['image'] ; ?>" alt = "food image">
-              </div>
-              <div class = "food-content">
-                <h2 class = "food-name"><?php echo $row_6['name'] ; ?></h2>
-                <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                <h3 class = "food-price"><?php echo $row_6['price'] . " đồng"; ?></h3>
-                <ul class = "rating">
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "fas fa-star"></i></li>
-                  <li><i class = "far fa-star"></i></li>
-                </ul>
-              <p class = "sale">Sale: <span><?php echo $row_6['sale_off'] . "%"; ?></span></p> 
-                
-              <button class="chi_tiet">Chi tiết</button>
-
-              </div>
-            </div>
-            <!-- end of item -->
-<?php } ?>
+           
+            
             <!-- item -->
            <?php while($row_7 = pg_fetch_array($showdouong)){ ?>
 
             <div class = "food-item do_uong">
               <div class = "food-img">
-                <img src = "<?php echo $row_7['image']; ?>" alt = "food image">
+                <img src = "<?php echo 'foods/'.$row_7['image']; ?>" alt = "food image">
               </div>
               <div class = "food-content">
                  <h2 class = "food-name"><?php echo $row_7['name'] ; ?></h2>
@@ -284,7 +254,6 @@
                   <li><i class = "far fa-star"></i></li>
                 </ul>
               <p class = "sale">Sale: <span><?php echo $row_7['sale_off'] . "%"; ?></span></p> 
-                
               <button class="chi_tiet">Chi tiết</button>
 
               </div>
@@ -292,11 +261,11 @@
             <!-- end of item -->
 <?php } ?>
             <!-- item -->
-           <?php while($row_8 = pg_fetch_array($showcomrang)){ ?>
+           <?php while($row_8 = pg_fetch_array($showdotrangmieng)){ ?>
 
-            <div class = "food-item com_rang">
+            <div class = "food-item do_trang_mieng">
               <div class = "food-img">
-                <img src = "<?php echo $row_8['image'] ; ?>" alt = "food image">
+                <img src = "<?php echo 'foods/'.$row_8['image'] ; ?>" alt = "food image">
               </div>
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_8['name'] ; ?></h2>
@@ -324,6 +293,7 @@
           </div>
         </div>
       </section>
+      <?php include "pagination.php" ?>
        <!-- footer-->
           <?php include "../footer/footer.php" ?>
 
