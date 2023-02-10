@@ -3,8 +3,7 @@
 const menuBtns = document.querySelectorAll('.menu-btn');
 const foodItems = document.querySelectorAll('.food-item');
 
-let activeBtn ='sale';
-
+let activeBtn='sale';
 showFoodMenu(activeBtn);
 
 menuBtns.forEach((btn) => {
