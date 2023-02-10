@@ -14,6 +14,39 @@
           <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
           <script src="js/script.js" defer></script>
+          <style>
+          #pagination{
+                text-align: right;
+                margin-top: 15px;
+                margin-bottom:15px ;
+            }
+            .page-item{
+                border: 1px solid #ccc;
+                padding: 5px 9px;
+                color: white;
+            }
+            .current-page{
+                background: #000;
+                color: white;
+            }
+        </style>
+<style>
+
+            #pagination{
+                text-align: right;
+                margin-top: 15px;
+                margin-bottom:15px ;
+            }
+            .page-item{
+                border: 1px solid #ccc;
+                padding: 5px 9px;
+                color: white;
+            }
+            .current-page{
+                background: #000;
+                color: white;
+            }
+        </style>
         </head>
         <body>
           <!--header</!-->
@@ -34,6 +67,10 @@
           <div class = "food-items">
           <?php  
           include "../connect_database/connect_db.php";  
+          $item_per_page =!empty($_GET['per_page'])?$_GET['per_page']:6;
+          $current_page =!empty($_GET['page'])?$_GET['page']:1;
+          $offset =($current_page-1)*$item_per_page;
+          
           $doan = 'Đồ ăn';
           $douong = 'Đồ uống';
           $banhngot = 'Bánh ngọt';
