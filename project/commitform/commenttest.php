@@ -13,27 +13,51 @@
  	if(($_POST['comment']=='')){
  		echo '<script language="javascript">alert("Bạn chưa feedback!"); window.location="../commitform/commenttest.php";</script>';
 
- 	}else{ ?>
+ 	}else{  ?>
  <script type="text/javascript">
-function check_val(){
- var bad_words=new Array("death","kill","murder","fuck","nigga");
- var check_text=document.getElementById("text").value;
- var error=0;
- for(var i=0;i<bad_words.length;i++)
+// Enter the words to be filtered in the line below:
+var swear_words_arr=new Array("bloody","war","terror","fuck");
+var swear_alert_arr=new Array;
+var swear_alert_count=0;
+function reset_alert_count()
+{
+ swear_alert_count=0;
+}
+function validate_text()
+{
+ reset_alert_count();
+ var compare_text=document.form1.text.value;
+ for(var i=0; i<swear_words_arr.length; i++)
  {
-  var val=bad_words[i];
-  if((check_text.toLowerCase()).indexOf(val.toString())>-1)
+  for(var j=0; j<(compare_text.length); j++)
   {
-   error=error+1;
+   if(swear_words_arr[i]==compare_text.substring(j,(j+swear_words_arr[i].length)).toLowerCase())
+   {
+    swear_alert_arr[swear_alert_count]=compare_text.substring(j,(j+swear_words_arr[i].length));
+    swear_alert_count++;
+   }
   }
  }
-	
- if(error>0)
+ var alert_text="";
+ for(var k=1; k<=swear_alert_count; k++)
  {
-  <script >alert("tồn tại từ xấu!"); window.location="../commitform/commenttest.php";</script>
+  alert_text+="\n" + "(" + k + ")  " + swear_alert_arr[k-1];
  }
- 
+ if(swear_alert_count>0)
+ {
+  alert("The message will not be sent!!!\nThe following illegal words were found:\n_______________________________\n" + alert_text + "\n_______________________________");
+  
+ }
+ else
+ { 
+  alert("sent the mess");
+ }
 }
+function select_area()
+{
+ document.form1.text.select();
+}
+window.onload=reset_alert_count;
 </script>
  
 <?php }
@@ -46,7 +70,7 @@ function check_val(){
 				<div class="user">
 					<div class="image"><img src="../images/avatar.jpg" alt="image"></div>
 						<div class="user-meta">
-							<div class="name">name</div>
+							<div class="name">nameđ d</div>
 							<div class="day">3 day ago</div>
 						</div>
 				</div>
@@ -60,8 +84,8 @@ function check_val(){
 				<div class="name"><?php echo $_SESSION['dangnhap'] ?></div>
 			</div>
 			<form action="" method="post">
-				<textarea name="comment" id="" cols="30" rows="10" placeholder="Your Comment"></textarea>
-				<input type="submit"  name ="commentsubmit"  value="Feedback"  onclick="check_val();">
+				<textarea name="comment" id="" cols="30" rows="10" placeholder="Your Comment" onClick="select_area()"></textarea>
+				<input type="submit"  name ="commentsubmit"  value="Feedback"  onClick="validate_text();">
 			</form>
 		</div>
 	<?php } ?>

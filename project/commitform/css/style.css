@@ -60,7 +60,12 @@ ul{
 }
 .comment-box .user{
 	display: flex;
-	width: min-content;
+
+}
+.comment-box .user .name{
+	text-transform: uppercase;
+	font-weight: 500;
+	color: black;
 }
 .comment-box .image img{
 	width: 24px;

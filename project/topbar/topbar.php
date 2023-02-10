@@ -33,9 +33,9 @@
             <ul class="nav-links">
               <i class="uil uil-times navCloseBtn"></i>
               <li><a href="../trangchu/foodinfo.php">Trang chủ</a></li>
-              <li><a href="#">Restaurant</a></li>
               <li><a href="../profile/profile.php">Profile</a></li>
               <li><a href="../commitform/commenttest.php">Feedback</a></li>
+              <li><a href="#">Flow us</a></li>
             </ul>
             <!--</!-->
 
