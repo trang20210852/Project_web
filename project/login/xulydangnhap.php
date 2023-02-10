@@ -7,11 +7,7 @@ header('Content-Type: text/html; charset=UTF-8');
 if (isset($_POST['dangnhap']))
 {
 //Kết nối tới database
-$host = "localhost";
-$user ="postgres";
-$pass = "root";	
-$db = "Web_LT";
-$db_connection = pg_connect("host=$host port=5432 dbname=$db user=$user password=$pass") or die ("could not connect to Server\n");
+include "../connect_database/connect_db.php";  
 //Lấy dữ liệu nhập vào
 	$username = addslashes($_POST['username']);
 	$password = addslashes($_POST['password']);

@@ -20,12 +20,8 @@
          
           <body class="profile">
           <?php         
-              $username = $_SESSION['username'];
-              $host = "localhost";
-              $user ="postgres";
-              $pass = "root";	
-              $db = "Web_LT";
-              $db_connection = pg_connect("host=$host port=5432 dbname=$db user=$user password=$pass") or die ("could not connect to Server\n");              $query = "SELECT * FROM public.users WHERE username = '$username' ";
+              include "../connect_database/connect_db.php";  
+              $query = "SELECT * FROM public.users WHERE username = '$username' ";
               $result = pg_query($db_connection, $query) ;
               $row = pg_fetch_object($result);
          

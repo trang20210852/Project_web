@@ -1,11 +1,7 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 // Kết nối cơ sở dữ liệu
-$host = "localhost";
-$user ="postgres";
-$pass = "root";	
-$db = "Web_LT";
-$db_connection = pg_connect("host=$host port=5432 dbname=$db user=$user password=$pass") or die ("could not connect to Server\n");
+include "../connect_database/connect_db.php";  
 
 // Dùng isset để kiểm tra Form
 if(isset($_POST['dangky']))

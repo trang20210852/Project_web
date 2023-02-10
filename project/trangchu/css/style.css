@@ -123,11 +123,13 @@ img{
 /*    background: #ff9505;*/
 }
 h3.dia_chi {
+    width:400px;
     padding: 0.4rem 0;
     font-weight: 300;
     font-size: 1rem;
     white-space: nowrap;
     overflow: hidden;
+    text-overflow:ellipsis; 
 }
 .food-price{
     padding: 0.4rem 0;

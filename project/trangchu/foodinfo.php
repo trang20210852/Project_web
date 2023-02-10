@@ -7,7 +7,7 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>HNFOOD</title>
           <!-- CSS -->
-          <link rel="stylesheet" href="css/style.css" />
+          <link rel="stylesheet" href="css/style.css?t=[timestamp]" type="text/css" />
           <!-- Unicons CSS -->
           <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
           <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -33,11 +33,7 @@
           </div>
           <div class = "food-items">
           <?php  
-   $host = "localhost";
-   $user ="postgres";
-   $pass = "root";	
-   $db = "Web_LT";
-   $db_connection = pg_connect("host=$host port=5432 dbname=$db user=$user password=$pass") or die ("could not connect to Server\n");          
+          include "../connect_database/connect_db.php";  
           $doan = 'Đồ ăn';
           $douong = 'Đồ uống';
           $banhngot = 'Bánh ngọt';
@@ -46,13 +42,13 @@
           
         
           
-          $safeoff = "SELECT * FROM public.dishes WHERE dishes.sale_off > 0  order by dishes.sale_off desc"; 
-          $query_all = "SELECT * FROM public.dishes order by dishes.sale_off desc";
-          $query_doan = "SELECT * FROM public.dishes WHERE type = '$doan' ";
-          $query_douong = "SELECT * FROM public.dishes WHERE type = '$douong' ";
-          $query_banhngot = "SELECT * FROM public.dishes WHERE type = '$banhngot' ";
-          $query_anvat = "SELECT * FROM public.dishes WHERE type = '$anvat' ";
-          $query_dotrangmieng = "SELECT * FROM public.dishes WHERE type = '$dotrangmieng' ";
+          $safeoff = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.sale_off > 0  order by dishes.sale_off desc"; 
+          $query_all = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall)  order by dishes.sale_off desc";
+          $query_doan = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$doan'";
+          $query_douong = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$douong'";
+          $query_banhngot = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$banhngot'";
+          $query_anvat = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$anvat'";
+          $query_dotrangmieng = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$dotrangmieng'";
          
           $show= pg_query($db_connection,$query_all);
           $showdoan = pg_query($db_connection,$query_doan);
@@ -75,7 +71,7 @@
                 <h2 class = "food-name"><?php echo $row_['name']; ?></h2>
 
                 <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "dia_chi"><?php echo $row_['address']?></h3>
                  <!-- <p class = "food-loai">Loại: <span>Phở</span></p> -->
                 <h3 class = "food-price"><?php echo $row_['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
@@ -105,7 +101,7 @@
                 <h2 class = "food-name"><?php echo $row_1['name']; ?></h2>
 
                 <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "dia_chi"><?php echo $row_1['address']?></h3>
                  <!-- <p class = "food-loai">Loại: <span>Phở</span></p> -->
                 <h3 class = "food-price"><?php echo $row_1['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
@@ -132,7 +128,7 @@
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_2['name']; ?></h2>
                 <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 1, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "dia_chi"><?php echo $row_2['address']; ?></h3>
                 <h3 class = "food-price"><?php echo $row_2['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
@@ -161,7 +157,7 @@
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_3['name'] ; ?></h2>
                 <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "dia_chi"><?php echo $row_3['address']?></h3>
                  <p class = "food-loai">Loại: <span>Phở</span></p>
                 <h3 class = "food-price"><?php echo $row_3['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
@@ -191,7 +187,7 @@
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_4['name'] ; ?></h2>
                 <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "dia_chi"><?php echo $row_4['address']?></h3>
                 <h3 class = "food-price"><?php echo $row_4['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
@@ -220,7 +216,7 @@
               <div class = "food-content">
                  <h2 class = "food-name"><?php echo $row_7['name'] ; ?></h2>
                 <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "dia_chi"><?php echo $row_7['address']?></h3>
                 <h3 class = "food-price"><?php echo $row_7['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
                   <li><i class = "fas fa-star"></i></li>
@@ -246,7 +242,7 @@
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_8['name'] ; ?></h2>
                 <div class = "line"></div>
-                <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
+                <h3 class = "dia_chi"><?php echo $row_8['address']?></h3>
         
                 <h3 class = "food-price"><?php echo $row_8['price'] . " đồng"; ?></h3>
                 <ul class = "rating">
