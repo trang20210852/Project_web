@@ -78,9 +78,6 @@
                   <p>Cập nhập thông tin</p>
                 </a>
                 <a href="" class="sub-menu-link">
-                  <p>Đã theo dõi</p> 
-                </a>
-                <a href="" class="sub-menu-link">
                   <p>Wish list</p> 
                 </a>
                 <a href="?login=dangxuat" class="sub-menu-link">

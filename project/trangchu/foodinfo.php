@@ -53,7 +53,7 @@
           include "../connect_database/connect_db.php";  
           $item_per_page =!empty($_GET['per_page'])?$_GET['per_page']:6;
           $current_page =!empty($_GET['page'])?$_GET['page']:1;
-          $offset =($current_page-1) * $item_per_page;
+          $offset = ($current_page-1) * $item_per_page;
           
           $doan = 'Đồ ăn';
           $douong = 'Đồ uống';
@@ -68,10 +68,10 @@
           $safeoffnum =pg_num_rows($safeoffnum);
           $totalpagesaleoff = ceil($safeoffnum / $item_per_page);
 
-          $query_all = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall)  limit ".$item_per_page." offset ".$offset ;;
+          $query_all = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall)  limit ".$item_per_page." offset ".$offset ;
           $query_doan = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$doan' limit ".$item_per_page." offset ".$offset ;
           $query_douong = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$douong' limit ".$item_per_page." offset ".$offset ;
-          $query_banhngot = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$banhngot' limit ".$item_per_page." offset ".$offset ;;
+          $query_banhngot = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$banhngot' limit ".$item_per_page." offset ".$offset ;
           $query_anvat = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$anvat' limit ".$item_per_page." offset ".$offset ;
           $query_dotrangmieng = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.type = '$dotrangmieng' limit ".$item_per_page." offset ".$offset ;
          

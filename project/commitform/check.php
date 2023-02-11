@@ -1,31 +1,49 @@
 <?php
+     session_start();
+     include "../connect_database/connect_db.php";
+function isBadWord($text)
+{
 
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
+//First we list the bad words in array
+$badwords = array('truck','fuck','cút','đm','còn cái nịt','web chán v','shit','có con cặc');
+//Then we perform the bad word check
+foreach($badwords as $badwords)
+{
+if(stristr($text,$badwords))
+{
+return true;
+}
+}
+return false;
+}
+    $comment = isset($_POST['comment']) ? $_POST['comment'] : '';
 
     $ok = true;
     $messages = array();
 
-    if ( !isset($username) || empty($username) ) {
+    if ( !isset($comment) || empty($comment) ) {
         $ok = false;
-        $messages[] = 'Username cannot be empty!';
+        $messages[] = 'bạn chưa feedback!';
     }
-
-    if ( !isset($password) || empty($password) ) {
+    else{ 
         $ok = false;
-        $messages[] = 'Password cannot be empty!';
-    }
-
-    if ($ok) {
-        if ($username === 'manhml@gmail.com' && $password === '1234') {
+        $text = $_POST['comment'];
+        if(isBadWord($text))
+        {
+             $messages[] = 'có badwords!';
+        }
+        else
+        {
             $ok = true;
             $messages[] = 'Successful login!';
-        } else {
-            $ok = false;
-            $messages[] = 'Incorrect username/password combination!';
-        }
+            //cái này sẽ insert vào bảng feedback
+            // $username ='saokcao';
+            // $name = 'adsdsa';
+            // $sql = "INSERT INTO public.users (username, password, name) VALUES ('$username', '$text', '$name')";
+            // $result = pg_query($db_connection, $sql) ;
+             
+        } 
     }
-
     echo json_encode(
         array(
             'ok' => $ok,
