@@ -65,6 +65,7 @@
           $showlau = pg_query($db_connection,$query_lau);
           $showsafeoff = pg_query($db_connection,$safeoff);
          
+          
           while($row_ = pg_fetch_array($showsafeoff)){
 ?>
           

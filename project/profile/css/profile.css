@@ -12,7 +12,7 @@
 html,body{
   display: grid;
   height: 100%;
-  background: #8e44ad;
+  background: #44355b;
 }
 .container{
   max-width: 100%;
@@ -61,7 +61,7 @@ html,body{
 }
 .box .name_job{
   margin: 10px 0 3px 0;
-  color: #8e44ad;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 600;
 }
@@ -120,6 +120,7 @@ ul{
 .menu{
   margin: 2rem 0;
   max-width: 100%;
+  margin: auto;
 }
 .menu-container{
   display: inline;
@@ -243,17 +244,16 @@ h3.dia_chi {
   margin-right: 0.4rem;
   color: #44355b;
 }
-.food-loai,
-.category{
-  padding-top: 0.2rem;
+
+.category
+{
+  padding: 0.4rem 0;
+  font-weight: 300;
   font-size: 1rem;
-  font-weight: 800;
-  font-family: var(--Inter);
+  white-space: nowrap;
+  overflow: hidden;
 }
-.food-loai,
-.category span{
-  font-weight: 500;
-}
+
 
 .chi_tiet{
   width: 100%;
