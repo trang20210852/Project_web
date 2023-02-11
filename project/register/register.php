@@ -23,7 +23,7 @@
         </div>
         <div class="field">
           <input type="password" name = " confirm_password"required>
-          <label> Confirm Password</label>
+          <label> Confirm Password </label>
         </div>
          <div class="field">
           <input type="number" name = "sdt"required>
